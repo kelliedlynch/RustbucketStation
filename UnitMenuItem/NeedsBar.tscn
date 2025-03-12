@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj1i70p5sp2jy"]
+
+[ext_resource type="StyleBox" uid="uid://bx2oc45mt73y2" path="res://UnitMenuItem/VertProgressBarBackground.tres" id="1_ef7n0"]
+[ext_resource type="Script" uid="uid://bqrftqhljxsft" path="res://UnitMenuItem/NeedsBar.gd" id="1_kos10"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5i6bd"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ef7n0"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 5
+border_width_top = 1
+border_width_right = 4
+border_color = Color(0.545098, 0, 0, 1)
+border_blend = true
+
+[node name="PanelContainer" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_5i6bd")
+script = ExtResource("1_kos10")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 12
+theme_override_styles/background = ExtResource("1_ef7n0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ef7n0")
+value = 20.0
+fill_mode = 3

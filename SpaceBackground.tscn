@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba5dp78yh7n5t"]
+
+[ext_resource type="Script" uid="uid://bqyys6e3btlhj" path="res://SpaceBackground.gd" id="1_lhksq"]
+[ext_resource type="Texture2D" uid="uid://b4nl3cx1xp2kr" path="res://Graphics/Nebula Blue.png" id="2_fvrbn"]
+[ext_resource type="Texture2D" uid="uid://db4bchxn723xb" path="res://Graphics/Stars-Big_1_1_PC.png" id="3_timbr"]
+
+[node name="SpaceBackground" type="Node2D"]
+script = ExtResource("1_lhksq")
+
+[node name="NebulaBackground" type="Sprite2D" parent="."]
+position = Vector2(981.478, 423.697)
+rotation = 8.50297
+texture = ExtResource("2_fvrbn")
+
+[node name="StarField" type="Sprite2D" parent="."]
+position = Vector2(556.263, 632.738)
+rotation = 28.8025
+texture = ExtResource("3_timbr")
