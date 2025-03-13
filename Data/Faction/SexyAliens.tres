@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Faction" load_steps=2 format=3 uid="uid://c6goux6qls0wk"]
+
+[ext_resource type="Script" uid="uid://cy5fsq5y3wbsl" path="res://Model/Faction/Faction.gd" id="1_kdghl"]
+
+[resource]
+script = ExtResource("1_kdghl")
+name = "Sexy Aliens"
+metadata/_custom_type_script = "uid://cy5fsq5y3wbsl"

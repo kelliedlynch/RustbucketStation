@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Faction" load_steps=2 format=3 uid="uid://cdnhushyoojdf"]
+
+[ext_resource type="Script" uid="uid://cy5fsq5y3wbsl" path="res://Model/Faction/Faction.gd" id="1_wubks"]
+
+[resource]
+script = ExtResource("1_wubks")
+name = "Fascist Empire"
+metadata/_custom_type_script = "uid://cy5fsq5y3wbsl"

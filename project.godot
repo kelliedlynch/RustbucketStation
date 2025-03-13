@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 Scaling="*res://Scaling.gd"
 Player="*res://Player.gd"
-FactionManager="*res://Faction/FactionManager.gd"
+FactionManager="*res://Model/Faction/FactionManager.gd"
 
 [display]
 

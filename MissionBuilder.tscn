@@ -5,100 +5,53 @@
 [ext_resource type="Theme" uid="uid://bw7068hor8c7d" path="res://OptionButtonTheme.tres" id="3_v4v2n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4v2n"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
 bg_color = Color(0.113049, 0.113049, 0.113049, 0.462745)
 
-[node name="Control" type="MarginContainer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -222.5
-offset_top = -233.0
-offset_right = 222.5
-offset_bottom = 233.0
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s0yvv")
 
-[node name="Background" parent="." instance=ExtResource("1_d322s")]
+[node name="ComponentSelector" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 159.0
+offset_top = 95.0
+offset_right = 604.0
+offset_bottom = 406.0
+
+[node name="Background" parent="ComponentSelector" instance=ExtResource("1_d322s")]
 self_modulate = Color(0.0823529, 0.172549, 0.329412, 1)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="ComponentSelector"]
 layout_mode = 2
 theme_override_constants/margin_left = 48
 theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 48
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 12
-alignment = 1
-
-[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Attention Space Heroes!"
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_v4v2n")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_bottom = 12
-
-[node name="DescText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-fit_content = true
-
-[node name="MissionDescription" type="HFlowContainer" parent="MarginContainer/VBoxContainer"]
-visible = false
+[node name="VBoxContainer" type="VBoxContainer" parent="ComponentSelector/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
-layout_mode = 2
-text = "The"
-
-[node name="DescFactionLabel" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
-layout_mode = 2
-text = "need a brave hero to join their fight against the vile"
-
-[node name="DescTargetLabel" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
-layout_mode = 2
-
-[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
-layout_mode = 2
-text = "You must travel to"
-
-[node name="DescLocationLabel" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
-layout_mode = 2
-
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
-layout_mode = 2
-text = "and"
-
-[node name="DescObjectiveLabel" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
-layout_mode = 2
-text = "[action]"
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="ComponentSelector/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 8
 columns = 2
 
-[node name="OriginLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="OriginLabel" type="Label" parent="ComponentSelector/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Origin"
 
-[node name="FactionOrigin" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="FactionOrigin" type="OptionButton" parent="ComponentSelector/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("3_v4v2n")
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -121,11 +74,11 @@ popup/item_4/id = 4
 popup/item_5/text = "Yourself"
 popup/item_5/id = 5
 
-[node name="TargetLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="TargetLabel" type="Label" parent="ComponentSelector/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Target"
 
-[node name="FactionTarget" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="FactionTarget" type="OptionButton" parent="ComponentSelector/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("3_v4v2n")
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -146,11 +99,11 @@ popup/item_3/id = 3
 popup/item_4/text = "Gross Aliens"
 popup/item_4/id = 4
 
-[node name="LocationLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="LocationLabel" type="Label" parent="ComponentSelector/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Location"
 
-[node name="Location" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="Location" type="OptionButton" parent="ComponentSelector/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("3_v4v2n")
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -167,11 +120,11 @@ popup/item_1/id = 1
 popup/item_2/text = "Earth"
 popup/item_2/id = 2
 
-[node name="ObjectiveLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="ObjectiveLabel" type="Label" parent="ComponentSelector/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Objective"
 
-[node name="Objective" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="Objective" type="OptionButton" parent="ComponentSelector/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("3_v4v2n")
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -194,6 +147,61 @@ popup/item_4/id = 4
 popup/item_5/text = "Rescue Target"
 popup/item_5/id = 5
 
-[node name="RandomizeButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="RandomizeButton" type="Button" parent="ComponentSelector/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Randomize"
+
+[node name="MissionSummary" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 1200.0
+offset_top = 95.0
+offset_right = 1645.0
+offset_bottom = 561.0
+
+[node name="Background" parent="MissionSummary" instance=ExtResource("1_d322s")]
+self_modulate = Color(0.0823529, 0.172549, 0.329412, 1)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MissionSummary"]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MissionSummary/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MissionSummary/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Attention Space Heroes!"
+
+[node name="PanelContainer" type="PanelContainer" parent="MissionSummary/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v4v2n")
+
+[node name="DescText" type="RichTextLabel" parent="MissionSummary/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+fit_content = true
+
+[node name="RewardsSummary" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 497.0
+offset_right = 599.0
+offset_bottom = 963.0
+
+[node name="Background" parent="RewardsSummary" instance=ExtResource("1_d322s")]
+self_modulate = Color(0.0823529, 0.172549, 0.329412, 1)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RewardsSummary"]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48

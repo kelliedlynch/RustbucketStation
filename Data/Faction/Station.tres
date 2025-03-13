@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Faction" load_steps=2 format=3 uid="uid://bp8l1wo8avjr1"]
+
+[ext_resource type="Script" uid="uid://cy5fsq5y3wbsl" path="res://Model/Faction/Faction.gd" id="1_a7sih"]
+
+[resource]
+script = ExtResource("1_a7sih")
+name = "Yourself"
+metadata/_custom_type_script = "uid://cy5fsq5y3wbsl"
