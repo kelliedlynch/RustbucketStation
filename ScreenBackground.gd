@@ -23,7 +23,7 @@ func _ready() -> void:
 	draw_lines()
 
 func draw_lines() -> void:
-	var window_size = size
+	#var window_size = size
 	for child in lines_parent.get_children():
 		child.queue_free()
 	for i in range(-2000, 3000, line_width + line_spacing):

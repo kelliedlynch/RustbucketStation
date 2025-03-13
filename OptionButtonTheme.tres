@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bw7068hor8c7d"]
+
+[ext_resource type="StyleBox" uid="uid://boovnep7bckno" path="res://OptionButtonHover.tres" id="1_2xre7"]
+[ext_resource type="StyleBox" uid="uid://bo54q1xuucwix" path="res://OptionButtonFocus.tres" id="1_8giek"]
+[ext_resource type="StyleBox" uid="uid://d2b1yxbr5ll4b" path="res://OptionButtonNormal.tres" id="1_8356o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xre7"]
+bg_color = Color(0.911227, 0.916247, 0.783168, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8giek"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+
+[resource]
+OptionButton/colors/font_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_focus_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_hover_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+OptionButton/constants/modulate_arrow = 1
+OptionButton/styles/focus = ExtResource("1_8giek")
+OptionButton/styles/hover = ExtResource("1_2xre7")
+OptionButton/styles/hover_pressed = ExtResource("1_2xre7")
+OptionButton/styles/normal = ExtResource("1_8356o")
+OptionButton/styles/pressed = ExtResource("1_2xre7")
+PopupMenu/colors/font_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_hover_color = Color(0, 0, 0, 1)
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_2xre7")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_8giek")

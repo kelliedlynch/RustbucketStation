@@ -7,16 +7,16 @@ var controller: Faction
 class Mercury extends Location:
 	func _init():
 		name = "Mercury"
-		controller = Faction.FascistEmpire
+		#controller = FactionManager.FascistEmpire
 	
 class Venus extends Location:
 	func _init():
 		name = "Venus"
-		controller = Faction.SexyAliens
+		#controller = FactionManager.SexyAliens
 		
 class Earth extends Location:
 	func _init():
 		name = "Earth"
-		controller = Faction.PluckyRebels
+		#controller = FactionManager.PluckyRebels
 
-static var AllLocations = [Mercury, Venus, Earth]
+static var AllLocations = [Mercury.new(), Venus.new(), Earth.new()]

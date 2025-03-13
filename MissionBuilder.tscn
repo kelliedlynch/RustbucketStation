@@ -1,9 +1,199 @@
-[gd_scene format=3 uid="uid://dbp76h323kiku"]
+[gd_scene load_steps=5 format=3 uid="uid://dbp76h323kiku"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[ext_resource type="PackedScene" uid="uid://dyc4gvvmusfp7" path="res://ScreenBackground.tscn" id="1_d322s"]
+[ext_resource type="Script" uid="uid://bedcsa1s1mptw" path="res://MissionBuilder.gd" id="1_s0yvv"]
+[ext_resource type="Theme" uid="uid://bw7068hor8c7d" path="res://OptionButtonTheme.tres" id="3_v4v2n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4v2n"]
+bg_color = Color(0.113049, 0.113049, 0.113049, 0.462745)
+
+[node name="Control" type="MarginContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.5
+offset_top = -233.0
+offset_right = 222.5
+offset_bottom = 233.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_s0yvv")
+
+[node name="Background" parent="." instance=ExtResource("1_d322s")]
+self_modulate = Color(0.0823529, 0.172549, 0.329412, 1)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Attention Space Heroes!"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v4v2n")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 12
+
+[node name="DescText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+fit_content = true
+
+[node name="MissionDescription" type="HFlowContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
+layout_mode = 2
+text = "The"
+
+[node name="DescFactionLabel" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
+layout_mode = 2
+text = "need a brave hero to join their fight against the vile"
+
+[node name="DescTargetLabel" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
+layout_mode = 2
+text = "You must travel to"
+
+[node name="DescLocationLabel" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
+layout_mode = 2
+text = "and"
+
+[node name="DescObjectiveLabel" type="Label" parent="MarginContainer/VBoxContainer/MissionDescription"]
+layout_mode = 2
+text = "[action]"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="OriginLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Origin"
+
+[node name="FactionOrigin" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_v4v2n")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+selected = 4
+item_count = 6
+popup/item_0/text = "Space Wizards"
+popup/item_0/id = 0
+popup/item_1/text = "Plucky Rebels"
+popup/item_1/id = 1
+popup/item_2/text = "Space Fascists"
+popup/item_2/id = 2
+popup/item_3/text = "Sexy Aliens"
+popup/item_3/id = 3
+popup/item_4/text = "Gross Aliens"
+popup/item_4/id = 4
+popup/item_5/text = "Yourself"
+popup/item_5/id = 5
+
+[node name="TargetLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Target"
+
+[node name="FactionTarget" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_v4v2n")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+selected = 1
+item_count = 5
+popup/item_0/text = "Space Wizards"
+popup/item_0/id = 0
+popup/item_1/text = "Plucky Rebels"
+popup/item_1/id = 1
+popup/item_2/text = "Space Fascists"
+popup/item_2/id = 2
+popup/item_3/text = "Sexy Aliens"
+popup/item_3/id = 3
+popup/item_4/text = "Gross Aliens"
+popup/item_4/id = 4
+
+[node name="LocationLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Location"
+
+[node name="Location" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_v4v2n")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+selected = 0
+item_count = 3
+popup/item_0/text = "Mercury"
+popup/item_0/id = 0
+popup/item_1/text = "Venus"
+popup/item_1/id = 1
+popup/item_2/text = "Earth"
+popup/item_2/id = 2
+
+[node name="ObjectiveLabel" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Objective"
+
+[node name="Objective" type="OptionButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_v4v2n")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+selected = 4
+item_count = 6
+popup/item_0/text = "Steal"
+popup/item_0/id = 0
+popup/item_1/text = "Deliver"
+popup/item_1/id = 1
+popup/item_2/text = "Scout"
+popup/item_2/id = 2
+popup/item_3/text = "Sabotage"
+popup/item_3/id = 3
+popup/item_4/text = "Destroy Target"
+popup/item_4/id = 4
+popup/item_5/text = "Rescue Target"
+popup/item_5/id = 5
+
+[node name="RandomizeButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Randomize"

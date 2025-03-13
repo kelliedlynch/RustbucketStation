@@ -1,28 +1,28 @@
-extends Resource
+extends MissionComponent
 class_name Faction
 
-static var SpaceWizards = {
-	name = "Space Wizards"
-}
+var name: String
 
-static var PluckyRebels = {
-	name = "Plucky Rebels"
-}
+class SpaceWizardsFaction extends Faction:
+	func _init() -> void:
+		name = "Space Wizards"
 
-static var FascistEmpire = {
-	name = "Fascist Empire"
-}
+class FascistEmpireFaction extends Faction:
+	func _init() -> void:
+		name = "FascistEmpire"
 
-static var SexyAliens = {
-	name = "Sexy Aliens"
-}
+class PluckyRebelsFaction extends Faction:
+	func _init() -> void:
+		name = "Plucky Rebels"
 
-static var GrossAliens = {
-	name = "Gross Aliens"
-}
-
-static var Player = {
-	name = "Yourself"
-}
-
-static var AllFactions = [SpaceWizards, PluckyRebels, FascistEmpire, SexyAliens, GrossAliens, Player]
+class SexyAliensFaction extends Faction:
+	func _init() -> void:
+		name = "Sexy Aliens"
+		
+class GrossAliensFaction extends Faction:
+	func _init() -> void:
+		name = "GrossAliens"
+		
+class StationFaction extends Faction:
+	func _init() -> void:
+		name = "Yourself"
