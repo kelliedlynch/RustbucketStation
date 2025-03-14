@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_kdghl")
 name = "Sexy Aliens"
+abbreviation = "SxAl"
 metadata/_custom_type_script = "uid://cy5fsq5y3wbsl"

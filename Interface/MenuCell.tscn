@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://df6rhbbtuffn4"]
+
+[ext_resource type="StyleBox" uid="uid://beftae1rdoriu" path="res://Interface/MenuValue.tres" id="1_3h163"]
+[ext_resource type="Script" uid="uid://bx61nfgeqi3bq" path="res://Interface/MenuCell.gd" id="2_gwhuj"]
+[ext_resource type="LabelSettings" uid="uid://24fpsfd1ml7f" path="res://Interface/MenuValueNeutral.tres" id="3_3af3n"]
+
+[node name="MenuHeaderCell" type="PanelContainer"]
+custom_minimum_size = Vector2(40, 0)
+offset_right = 67.0
+offset_bottom = 23.0
+theme_override_styles/panel = ExtResource("1_3h163")
+script = ExtResource("2_gwhuj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="TextLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+label_settings = ExtResource("3_3af3n")
+horizontal_alignment = 1

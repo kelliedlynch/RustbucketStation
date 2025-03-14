@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Objective" load_steps=2 format=3 uid="uid://ce0ivbxrbl8et"]
+
+[ext_resource type="Script" uid="uid://dxd56exm04s1v" path="res://Model/Mission/Objective.gd" id="1_ajwjr"]
+
+[resource]
+script = ExtResource("1_ajwjr")
+name = ""
+objective_verbs = PackedStringArray("deliver", "smuggle in", "smuggle out")
+objective_target = PackedStringArray("seven tons of butter", "a suspiciously ticking package", "a large crate of opossums", "counterfeit postage stamps", "a diplomatic delegation of blood cultists", "some rich, obnoxious tourists")
+objective_target_subjects = PackedStringArray()
+objective_target_prepositions = PackedStringArray()
+objective_target_objects = PackedStringArray()
+metadata/_custom_type_script = "uid://dxd56exm04s1v"

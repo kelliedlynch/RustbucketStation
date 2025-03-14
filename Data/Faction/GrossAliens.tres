@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_anh2w")
 name = "Gross Aliens"
+abbreviation = "GrAl"
 metadata/_custom_type_script = "uid://cy5fsq5y3wbsl"

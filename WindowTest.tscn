@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://cub05nflqudcg"]
+[gd_scene load_steps=16 format=3 uid="uid://cub05nflqudcg"]
 
 [ext_resource type="Script" uid="uid://dviyetp1oub7t" path="res://WindowTest.gd" id="1_60m7p"]
 [ext_resource type="Texture2D" uid="uid://qm2w4r4f2v6i" path="res://Graphics/window_frame_test.png" id="1_xlf0g"]
 [ext_resource type="PackedScene" uid="uid://dyc4gvvmusfp7" path="res://ScreenBackground.tscn" id="2_ge15f"]
 [ext_resource type="Texture2D" uid="uid://by1ngejnultnc" path="res://Graphics/Icons/heart.png" id="4_4x5di"]
+[ext_resource type="PackedScene" uid="uid://df6rhbbtuffn4" path="res://Interface/MenuCell.tscn" id="4_5i6bd"]
+[ext_resource type="StyleBox" uid="uid://du31smfdmdgsb" path="res://Interface/MenuHeader.tres" id="4_f2fyj"]
 [ext_resource type="Texture2D" uid="uid://dqiq6xuia0g32" path="res://Graphics/Icons/sparkles.png" id="4_lg16g"]
 [ext_resource type="Texture2D" uid="uid://c6eqc0l1jlv4u" path="res://Graphics/Icons/ray_gun.png" id="5_f2fyj"]
 [ext_resource type="Texture2D" uid="uid://yas5ipmtr16h" path="res://Graphics/Icons/spaceship.png" id="6_lg16g"]
@@ -22,19 +24,6 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2fyj"]
-content_margin_left = 10.0
-content_margin_top = 0.0
-content_margin_right = 10.0
-bg_color = Color(0.113725, 0.0588235, 0.435294, 1)
-skew = Vector2(0.8, 0)
-border_width_left = 4
-border_width_top = 3
-border_color = Color(0, 1, 1, 1)
-border_blend = true
-shadow_size = 4
-shadow_offset = Vector2(2, 2)
 
 [node name="WindowFrameTest" type="Sprite2D"]
 texture = ExtResource("1_xlf0g")
@@ -83,24 +72,14 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="PanelContainer2" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_5i6bd")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f2fyj")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer2"]
-custom_minimum_size = Vector2(171, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "Name"
-horizontal_alignment = 1
+cell_type = 0
 
 [node name="PanelContainer4" type="PanelContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f2fyj")
+theme_override_styles/panel = ExtResource("4_f2fyj")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer4"]
 layout_mode = 2
@@ -119,7 +98,7 @@ expand_mode = 1
 [node name="PanelContainer5" type="PanelContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f2fyj")
+theme_override_styles/panel = ExtResource("4_f2fyj")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer5"]
 layout_mode = 2
@@ -138,7 +117,7 @@ expand_mode = 1
 [node name="PanelContainer6" type="PanelContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f2fyj")
+theme_override_styles/panel = ExtResource("4_f2fyj")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer6"]
 layout_mode = 2
@@ -157,7 +136,7 @@ expand_mode = 1
 [node name="PanelContainer7" type="PanelContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f2fyj")
+theme_override_styles/panel = ExtResource("4_f2fyj")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer7"]
 layout_mode = 2
@@ -176,7 +155,7 @@ expand_mode = 1
 [node name="PanelContainer8" type="PanelContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f2fyj")
+theme_override_styles/panel = ExtResource("4_f2fyj")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer8"]
 layout_mode = 2
@@ -195,7 +174,7 @@ expand_mode = 1
 [node name="PanelContainer9" type="PanelContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f2fyj")
+theme_override_styles/panel = ExtResource("4_f2fyj")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer9"]
 layout_mode = 2
@@ -208,7 +187,7 @@ text = "Status"
 [node name="PanelContainer10" type="PanelContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f2fyj")
+theme_override_styles/panel = ExtResource("4_f2fyj")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer10"]
 layout_mode = 2
@@ -228,7 +207,7 @@ expand_mode = 1
 [node name="PanelContainer11" type="PanelContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f2fyj")
+theme_override_styles/panel = ExtResource("4_f2fyj")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer11"]
 layout_mode = 2
@@ -248,7 +227,7 @@ expand_mode = 1
 [node name="PanelContainer12" type="PanelContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f2fyj")
+theme_override_styles/panel = ExtResource("4_f2fyj")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer12"]
 layout_mode = 2
@@ -268,7 +247,7 @@ expand_mode = 1
 [node name="PanelContainer13" type="PanelContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f2fyj")
+theme_override_styles/panel = ExtResource("4_f2fyj")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/MarginContainer2/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer13"]
 layout_mode = 2

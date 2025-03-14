@@ -2,6 +2,8 @@ extends MissionComponent
 class_name Faction
 
 @export var name: String
+@export var abbreviation: String
+@export var icon: Texture2D
 
 func get_base_money_reward(mission: Mission) -> int:
 	return 10 if mission.origin == self else 0

@@ -7,7 +7,8 @@ var GrossAliens: Faction = load("uid://ceu3385komw6s")
 var SexyAliens: Faction = load("uid://c6goux6qls0wk")
 var PluckyRebels: Faction = load("uid://b1elkkb1yqgl2")
 
-var AllFactions: Array[Faction] = [SpaceWizards, PluckyRebels, SpaceFascists, SexyAliens, GrossAliens, Station]
+## Note: AllFactions does not include Station faction, as it isn't normally selectable.
+var AllFactions: Array[Faction] = [SpaceWizards, PluckyRebels, SpaceFascists, SexyAliens, GrossAliens]
 
 var RepMap: Dictionary[Array, int]
 

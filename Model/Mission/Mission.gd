@@ -6,6 +6,8 @@ var target: Faction
 var location: Location
 var objective: Objective
 
+var required_stats = {}
+
 var money_reward: int:
 	get:
 		var base_reward = components.reduce(func(accum: int, val: MissionComponent): return accum + val.get_base_money_reward(self), 0)

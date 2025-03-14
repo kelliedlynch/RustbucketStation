@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Objective" load_steps=2 format=3 uid="uid://x5h7jux0fayh"]
+
+[ext_resource type="Script" uid="uid://dxd56exm04s1v" path="res://Model/Mission/Objective.gd" id="1_o1uou"]
+
+[resource]
+script = ExtResource("1_o1uou")
+name = "Sabotage"
+objective_verbs = PackedStringArray("sabotage", "detroy", "cripple", "subtly damage", "vandalize")
+objective_target = PackedStringArray("the barracks sewer system", "a beloved planetary monument", "the President\'s general sense of well-being", "the Hospital for Sick Puppies with Cancer", "the WiFi", "every swingset you can find")
+objective_target_subjects = PackedStringArray()
+objective_target_prepositions = PackedStringArray()
+objective_target_objects = PackedStringArray()
+metadata/_custom_type_script = "uid://dxd56exm04s1v"

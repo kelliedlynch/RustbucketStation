@@ -1,6 +1,13 @@
 extends MissionComponent
 class_name Objective
 
+@export var name: String
+@export var objective_verbs: PackedStringArray
+@export var objective_target: PackedStringArray
+@export var objective_target_subjects: PackedStringArray
+@export var objective_target_prepositions: PackedStringArray
+@export var objective_target_objects: PackedStringArray
+
 static var Steal = {
 	name = "Steal",
 	objective_text = "steal",

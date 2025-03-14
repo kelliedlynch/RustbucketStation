@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Objective" load_steps=2 format=3 uid="uid://dqyclv5u8wovt"]
+
+[ext_resource type="Script" uid="uid://dxd56exm04s1v" path="res://Model/Mission/Objective.gd" id="1_ciuwu"]
+
+[resource]
+script = ExtResource("1_ciuwu")
+name = "Rescue"
+objective_verbs = PackedStringArray("rescue")
+objective_target = PackedStringArray("the President from an awkward dinner", "the princess from the princess", "a harem full of catboys", "a terrorist cell from a religious cult", "the President\'s daughter\'s best friend\'s babysitter")
+objective_target_subjects = PackedStringArray()
+objective_target_prepositions = PackedStringArray()
+objective_target_objects = PackedStringArray()
+metadata/_custom_type_script = "uid://dxd56exm04s1v"

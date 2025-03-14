@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_1ext8")
 name = "Plucky Rebels"
+abbreviation = "PlRb"
 metadata/_custom_type_script = "uid://cy5fsq5y3wbsl"

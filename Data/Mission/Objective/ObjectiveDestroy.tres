@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Objective" load_steps=2 format=3 uid="uid://x2lnb48nbdm7"]
+
+[ext_resource type="Script" uid="uid://dxd56exm04s1v" path="res://Model/Mission/Objective.gd" id="1_lbsn0"]
+
+[resource]
+script = ExtResource("1_lbsn0")
+name = "Destroy"
+objective_verbs = PackedStringArray("destroy", "blow up", "carpet bomb", "implode")
+objective_target = PackedStringArray("some guy\'s house", "a beloved planetary monument", "the spy outpost spying on our spy outpost", "a moon. Any moon will do", "Parliamint, but just a little", "at least 80% of the area\'s laundromats")
+objective_target_subjects = PackedStringArray()
+objective_target_prepositions = PackedStringArray()
+objective_target_objects = PackedStringArray()
+metadata/_custom_type_script = "uid://dxd56exm04s1v"

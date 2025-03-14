@@ -11,7 +11,7 @@ extends Control
 @onready var desc_objective: Label = find_child("DescObjectiveLabel")
 @onready var desc_text: RichTextLabel = find_child("DescText")
 
-@onready var rewards_container: Container = find_child("RewardsContainer")
+@onready var rewards_container: Container = find_child("FactionRewards")
 
 @onready var randomize_button: Button = find_child("RandomizeButton")
 
@@ -93,20 +93,21 @@ func build_rewards():
 	rewards_container.add_child(money_label)
 	var rep_header = Label.new()
 	rep_header.text = "Reputation Gains"
-	rewards_container.add_child(rep_header)
-	for key in rep:
-		var rep_label = Label.new()
-		var val = rep[key]
-		if val == 0: continue
-		var sign = "+"
-		if val > 0:
-			rep_label.modulate = Color.WEB_GREEN
-		else:
-			sign = "-"
-			rep_label.modulate = Color.RED
-		rep_label.text = "%s: %s%d" % [key.name, sign, abs(val)]
-		rewards_container.add_child(rep_label)
-	pass
+	build_rewards_display()
+	#rewards_container.add_child(rep_header)
+	#for key in rep:
+		#var rep_label = Label.new()
+		#var val = rep[key]
+		#if val == 0: continue
+		#var sign = "+"
+		#if val > 0:
+			#rep_label.modulate = Color.WEB_GREEN
+		#else:
+			#sign = "-"
+			#rep_label.modulate = Color.RED
+		#rep_label.text = "%s: %s%d" % [key.name, sign, abs(val)]
+		#rewards_container.add_child(rep_label)
+	#pass
 
 func randomize_quest():
 	faction_origin.select(randi_range(0, faction_origin.item_count - 2))
@@ -118,4 +119,23 @@ func randomize_quest():
 	objective.select(randi_range(0, objective.item_count - 1))
 	objective.item_selected.emit(objective.selected)
 	
-	#build_description()
+func build_rewards_display():
+	for child in rewards_container.get_children():
+		child.queue_free()
+	var rewards = mission.rep_reward
+	rewards_container.columns = FactionManager.AllFactions.size()
+	var vals = []
+	for faction in FactionManager.AllFactions:
+		var header_cell: MenuCell = load("uid://df6rhbbtuffn4").instantiate()
+		header_cell.cell_type = MenuCell.CellType.Header
+		header_cell.text = faction.abbreviation
+		rewards_container.add_child(header_cell)
+		var val_cell: MenuCell = load("uid://df6rhbbtuffn4").instantiate()
+		if rewards.has(faction):
+			val_cell.text = str(rewards[faction])
+			val_cell.label_settings = load("uid://c07v3i5nocusr") if rewards[faction] > 0 else load("uid://cvjxrvq34s8pc")
+		else:
+			val_cell.text = ""
+		vals.append(val_cell)
+	for cell in vals:
+		rewards_container.add_child(cell)

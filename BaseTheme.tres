@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://d34yxm6ykhv1s"]
 
-[ext_resource type="StyleBox" uid="uid://beftae1rdoriu" path="res://UnitMenuItem/MenuItemRow.tres" id="1_wuiyi"]
+[ext_resource type="StyleBox" uid="uid://beftae1rdoriu" path="res://Interface/MenuValue.tres" id="1_wuiyi"]
 
 [resource]
 Label/font_sizes/font_size = 20

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Objective" load_steps=2 format=3 uid="uid://vm5n6tjev3yw"]
+
+[ext_resource type="Script" uid="uid://dxd56exm04s1v" path="res://Model/Mission/Objective.gd" id="1_u3ano"]
+
+[resource]
+script = ExtResource("1_u3ano")
+name = "Steal"
+objective_verbs = PackedStringArray("steal", "pilfer", "obtain", "yoink", "nab")
+objective_target = PackedStringArray("the prince\'s crown jewels", "seven tons of butter", "a suspiciously ticking package", "a seriously offensive but valuable historical artifact", "everyone\'s left sock")
+objective_target_subjects = PackedStringArray("a missive from the Prime Minister")
+objective_target_prepositions = PackedStringArray("to")
+objective_target_objects = PackedStringArray("the SpacePope\'s daughter")
+metadata/_custom_type_script = "uid://dxd56exm04s1v"

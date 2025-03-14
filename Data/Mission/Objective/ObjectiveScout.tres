@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Objective" load_steps=2 format=3 uid="uid://owbmy3gfdr6v"]
+
+[ext_resource type="Script" uid="uid://dxd56exm04s1v" path="res://Model/Mission/Objective.gd" id="1_tjdko"]
+
+[resource]
+script = ExtResource("1_tjdko")
+name = "Scout"
+objective_verbs = PackedStringArray("scout for", "survey for", "find", "search out")
+objective_target = PackedStringArray("militariy activity", "suspicious structures", "camera locations for a new reality show", "the best Mexican restaurant", "pictures of the Prime Minister\'s feet for...reasons")
+objective_target_subjects = PackedStringArray()
+objective_target_prepositions = PackedStringArray()
+objective_target_objects = PackedStringArray()
+metadata/_custom_type_script = "uid://dxd56exm04s1v"
