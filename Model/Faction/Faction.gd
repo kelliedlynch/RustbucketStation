@@ -3,26 +3,19 @@ class_name Faction
 
 @export var name: String
 
-class SpaceWizardsFaction extends Faction:
-	func _init() -> void:
-		name = "Space Wizards"
-
-class FascistEmpireFaction extends Faction:
-	func _init() -> void:
-		name = "FascistEmpire"
-
-class PluckyRebelsFaction extends Faction:
-	func _init() -> void:
-		name = "Plucky Rebels"
-
-class SexyAliensFaction extends Faction:
-	func _init() -> void:
-		name = "Sexy Aliens"
-		
-class GrossAliensFaction extends Faction:
-	func _init() -> void:
-		name = "GrossAliens"
-		
-class StationFaction extends Faction:
-	func _init() -> void:
-		name = "Yourself"
+func get_base_money_reward(mission: Mission) -> int:
+	return 10 if mission.origin == self else 0
+	
+func get_base_rep_reward(mission: Mission) -> Dictionary[Faction, int]:
+	var self_rep = 0
+	if mission.origin == self and not mission.target == self:
+		self_rep += 50
+	if mission.target == self and not mission.origin == self:
+		self_rep -= 25
+	return { self: self_rep }
+	
+func apply_money_reward_multiplier(_mission: Mission, base_val: int) -> int:
+	return 0
+	
+func apply_rep_reward_multiplier(_mission: Mission, base_val: Dictionary[Faction, int]) -> Dictionary[Faction, int]:
+	return {}

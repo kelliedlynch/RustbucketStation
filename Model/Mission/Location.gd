@@ -1,4 +1,4 @@
-extends Resource
+extends MissionComponent
 class_name Location
 
 var name: String

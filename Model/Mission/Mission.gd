@@ -6,35 +6,49 @@ var target: Faction
 var location: Location
 var objective: Objective
 
-var money_reward: int = 0
-var rep_reward: Dictionary[Faction, int] = {}
+var money_reward: int:
+	get:
+		var base_reward = components.reduce(func(accum: int, val: MissionComponent): return accum + val.get_base_money_reward(self), 0)
+		var multiplied = _apply_money_reward_multipliers(base_reward)
+		return multiplied
+		
+var rep_reward: Dictionary[Faction, int]:
+	get:
+		var base_reward: Dictionary[Faction, int] = _get_base_rep_rewards()
+		var multiplied : Dictionary[Faction, int] = _apply_rep_reward_multipliers(base_reward)
+		return multiplied
 
-var components: Array[MissionComponent]
+var components: Array[MissionComponent]:
+	get:
+		var comp: Array[MissionComponent] = []
+		for component in [origin, target, location, objective]:
+			if component:
+				comp.append(component)
+		return comp
 
-func recalculate_rewards():
-	calculate_money_reward()
-	calculate_reputation_rewards()
+func _apply_money_reward_multipliers(base_reward):
+	var multiplied = base_reward
+	for component in components:
+		multiplied += component.apply_money_reward_multiplier(self, base_reward)
+	return multiplied
 
-func calculate_money_reward():
-	money_reward = 0
-	money_reward = components.reduce(func(accum, val: MissionComponent): return accum + val.get_base_money_reward(self), money_reward)
-	components.map(_apply_money_reward_multipliers)
-
-func _apply_money_reward_multipliers(component: MissionComponent):
-	money_reward = component.apply_money_reward_multiplier(self)
-
-func calculate_reputation_rewards():
-	var rewards: Dictionary[Faction, int] = {}
-	components.map(_add_base_rep_rewards)
-	components.map(_apply_rep_multipliers)
-	return rewards
-
-func _add_base_rep_rewards(component: MissionComponent):
-	var component_rewards = component.get_base_rep_reward(self)
-	for key in component_rewards:
-		rep_reward[key] += component_rewards[key]
+func _get_base_rep_rewards() -> Dictionary[Faction, int]:
+	var base_reward: Dictionary[Faction, int] = {}
+	for component: MissionComponent in components:
+		var component_rewards = component.get_base_rep_reward(self)
+		for key in component_rewards:
+			if not base_reward.has(key):
+				base_reward[key] = 0
+			base_reward[key] += component_rewards[key]
+	return base_reward
 	
-func _apply_rep_multipliers(component: MissionComponent):
-	var rewards = component.apply_rep_reward_multiplier(self)
-	for key in rewards:
-		rep_reward[key] = rewards[key]
+## Returns dictionary of fully-calculated after-multiplier rewards
+func _apply_rep_reward_multipliers(base_rewards: Dictionary[Faction, int]):
+	var multiplied_rewards: Dictionary[Faction, int] = base_rewards.duplicate()
+	for component: MissionComponent in components:
+		var component_rewards = component.apply_rep_reward_multiplier(self, base_rewards)
+		for key in component_rewards:
+			if not base_rewards.has(key):
+				continue
+			multiplied_rewards[key] += component_rewards[key]
+	return multiplied_rewards

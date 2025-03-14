@@ -9,8 +9,10 @@ func get_base_money_reward(_mission: Mission) -> int:
 func get_base_rep_reward(_mission: Mission) -> Dictionary[Faction, int]:
 	return {}
 	
-func apply_money_reward_multiplier(mission: Mission) -> int:
-	return mission.money_reward
+## Returns the amount to be added to the total by multipliers, not the total itself
+func apply_money_reward_multiplier(_mission: Mission, _base_val: int) -> int:
+	return 0
 	
-func apply_rep_reward_multiplier(mission: Mission) -> Dictionary[Faction, int]:
-	return mission.rep_reward.duplicate()
+## Returns a dictionary of amounts to be added to total by multipliers
+func apply_rep_reward_multiplier(_mission: Mission, base_val: Dictionary[Faction, int]) -> Dictionary[Faction, int]:
+	return {}

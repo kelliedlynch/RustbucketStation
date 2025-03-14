@@ -11,6 +11,8 @@ extends Control
 @onready var desc_objective: Label = find_child("DescObjectiveLabel")
 @onready var desc_text: RichTextLabel = find_child("DescText")
 
+@onready var rewards_container: Container = find_child("RewardsContainer")
+
 @onready var randomize_button: Button = find_child("RandomizeButton")
 
 var mission: Mission
@@ -39,6 +41,7 @@ func _on_component_selected(index: int, button: OptionButton, prop: StringName):
 	mission.set(prop, button.get_item_metadata(index))
 	await get_tree().process_frame
 	build_description()
+	build_rewards()
 
 func clear_popup_options(button: OptionButton):
 	for i in range(button.item_count - 1, -1, -1):
@@ -81,6 +84,28 @@ func build_description(_val = null):
 	desc_text.add_text(". May the fortune of the stars be with you!")
 	
 func build_rewards():
+	for child in rewards_container.get_children():
+		child.queue_free()
+	var money = mission.money_reward
+	var rep = mission.rep_reward
+	var money_label = Label.new()
+	money_label.text = str(money) + " Space Dollars"
+	rewards_container.add_child(money_label)
+	var rep_header = Label.new()
+	rep_header.text = "Reputation Gains"
+	rewards_container.add_child(rep_header)
+	for key in rep:
+		var rep_label = Label.new()
+		var val = rep[key]
+		if val == 0: continue
+		var sign = "+"
+		if val > 0:
+			rep_label.modulate = Color.WEB_GREEN
+		else:
+			sign = "-"
+			rep_label.modulate = Color.RED
+		rep_label.text = "%s: %s%d" % [key.name, sign, abs(val)]
+		rewards_container.add_child(rep_label)
 	pass
 
 func randomize_quest():
