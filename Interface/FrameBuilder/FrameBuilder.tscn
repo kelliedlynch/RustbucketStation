@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdwtdj8vxcbl5"]
+
+[ext_resource type="Script" uid="uid://bo8tsfp18g0e3" path="res://Interface/FrameBuilder/FrameBuilder.gd" id="1_tvncg"]
+[ext_resource type="PackedScene" uid="uid://dyc4gvvmusfp7" path="res://ScreenBackground.tscn" id="2_ljfwe"]
+[ext_resource type="Texture2D" uid="uid://qyp2lkvertww" path="res://Graphics/FrameBuilder/Base/window_9_patch_256.png" id="2_pg0ke"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljfwe"]
+texture = ExtResource("2_pg0ke")
+texture_margin_left = 32.0
+texture_margin_top = 36.0
+texture_margin_right = 32.0
+texture_margin_bottom = 36.0
+
+[node name="DynamicFrame" type="MarginContainer"]
+offset_right = 400.0
+offset_bottom = 600.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+script = ExtResource("1_tvncg")
+
+[node name="BackgroundContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = -22
+theme_override_constants/margin_top = -24
+theme_override_constants/margin_right = -22
+theme_override_constants/margin_bottom = -24
+
+[node name="Background" parent="BackgroundContainer" instance=ExtResource("2_ljfwe")]
+self_modulate = Color(0.0823529, 0.172549, 0.329412, 1)
+layout_mode = 2
+expand_mode = 0
+
+[node name="FrameContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = -40
+theme_override_constants/margin_top = -40
+theme_override_constants/margin_right = -40
+theme_override_constants/margin_bottom = -40
+
+[node name="BaseFrame" type="PanelContainer" parent="FrameContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ljfwe")

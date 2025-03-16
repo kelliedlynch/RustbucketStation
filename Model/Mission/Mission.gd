@@ -6,7 +6,13 @@ var target: Faction
 var location: Location
 var objective: Objective
 
-var required_stats = {}
+#var test: Array[MissionComponent] = [origin, target, location, objective]
+
+var requirements: MissionRequirements:
+	get:
+		var base_requirements: MissionRequirements = _get_base_requirements()
+		var modified: MissionRequirements = _apply_requirements_modifiers(base_requirements)
+		return modified
 
 var money_reward: int:
 	get:
@@ -22,11 +28,13 @@ var rep_reward: Dictionary[Faction, int]:
 
 var components: Array[MissionComponent]:
 	get:
-		var comp: Array[MissionComponent] = []
-		for component in [origin, target, location, objective]:
-			if component:
-				comp.append(component)
-		return comp
+		var test: Array[MissionComponent] = [origin, target, location, objective]
+		return test
+		#var comp: Array[MissionComponent] = []
+		#for component in [origin, target, location, objective]:
+			#if component:
+				#comp.append(component)
+		#return comp
 
 func _apply_money_reward_multipliers(base_reward):
 	var multiplied = base_reward
@@ -54,3 +62,38 @@ func _apply_rep_reward_multipliers(base_rewards: Dictionary[Faction, int]):
 				continue
 			multiplied_rewards[key] += component_rewards[key]
 	return multiplied_rewards
+
+func _get_base_requirements() -> MissionRequirements:
+	var base: MissionRequirements = MissionRequirements.new()
+	for component: MissionComponent in components:
+		base.clamp_to(component.get_base_requirements(self))
+	return base
+
+func _apply_requirements_modifiers(base_reqs: MissionRequirements) -> MissionRequirements:
+	var modified_reqs: MissionRequirements = base_reqs.duplicate(true)
+	for component: MissionComponent in components:
+		modified_reqs.add(component.apply_requirements_modifiers(self, base_reqs))
+	return modified_reqs
+
+func get_eligible_pilots() -> Array[Character]:
+	var eligible: Array[Character] = []
+	var reqs = requirements
+	
+	for pilot in CharacterManager.in_station:
+		var is_eligible = true
+		if pilot.name == "Bri":
+			pass
+		for prop in reqs.get_property_list():
+			if prop.name.begins_with("stat_"):
+				if prop.name.ends_with("_min"):
+					if pilot.get(prop.name.left(-4)) < reqs.get(prop.name):
+						is_eligible = false
+						break
+				if prop.name.ends_with("_max"):
+					if pilot.get(prop.name.left(-4)) > reqs.get(prop.name):
+						is_eligible = false
+						break
+		if is_eligible:
+			eligible.append(pilot)
+			pass
+	return eligible

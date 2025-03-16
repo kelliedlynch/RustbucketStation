@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Location" load_steps=3 format=3 uid="uid://b3tqjcrfpnll4"]
+
+[ext_resource type="Script" uid="uid://bxmc8lkvsrltk" path="res://Model/Mission/Location.gd" id="1_5n8uu"]
+[ext_resource type="Resource" uid="uid://cdnhushyoojdf" path="res://Data/Faction/SpaceFascists.tres" id="1_u7itf"]
+
+[resource]
+script = ExtResource("1_5n8uu")
+name = "Earth"
+controller = ExtResource("1_u7itf")
+metadata/_custom_type_script = "uid://bxmc8lkvsrltk"

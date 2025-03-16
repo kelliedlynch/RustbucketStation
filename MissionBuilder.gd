@@ -5,6 +5,8 @@ extends Control
 @onready var location: OptionButton = find_child("Location")
 @onready var objective: OptionButton = find_child("Objective")
 
+@onready var component_selector_container: MarginContainer = find_child("ComponentSelectorFrame")
+
 @onready var desc_faction: Label = find_child("DescFactionLabel")
 @onready var desc_target: Label = find_child("DescTargetLabel")
 @onready var desc_location: Label = find_child("DescLocationLabel")
@@ -13,20 +15,22 @@ extends Control
 
 @onready var rewards_container: Container = find_child("FactionRewards")
 
+@onready var eligible_pilots_container: Container = find_child("EligiblePilotsContainer")
+
 @onready var randomize_button: Button = find_child("RandomizeButton")
 
 var mission: Mission
 
 func _ready() -> void:
 	mission = Mission.new()
-	clear_popup_options(faction_origin)
-	clear_popup_options(faction_target)
-	clear_popup_options(location)
-	clear_popup_options(objective)
+	#clear_popup_options(faction_origin)
+	#clear_popup_options(faction_target)
+	#clear_popup_options(location)
+	#clear_popup_options(objective)
 
 	populate_component_button(faction_origin, FactionManager.AllFactions)
 	populate_component_button(faction_target, FactionManager.AllFactions)
-	populate_component_button(location, Location.AllLocations)
+	populate_component_button(location, LocationManager.AllLocations)
 	populate_component_button(objective, Objective.AllObjectives)
 
 	faction_origin.item_selected.connect(_on_component_selected.bind(faction_origin, "origin"))
@@ -42,6 +46,7 @@ func _on_component_selected(index: int, button: OptionButton, prop: StringName):
 	await get_tree().process_frame
 	build_description()
 	build_rewards()
+	build_eligible_pilots_list()
 
 func clear_popup_options(button: OptionButton):
 	for i in range(button.item_count - 1, -1, -1):
@@ -75,11 +80,11 @@ func build_description(_val = null):
 	desc_text.pop()
 	desc_text.add_text(" and ")
 	desc_text.push_color(Color.DEEP_PINK)
-	var objective_dict = objective.get_item_metadata(objective.selected)
-	var obj_text = objective_dict.objective_text
-	if objective_dict.objective_targets:
-		obj_text += " " + objective_dict.objective_targets.pick_random()
-	desc_text.add_text(obj_text)
+	#var objective_dict = objective.get_item_metadata(objective.selected)
+	#var obj_text = objective_dict.objective_text
+	#if objective_dict.objective_targets:
+		#obj_text += " " + objective_dict.objective_targets.pick_random()
+	desc_text.add_text("obj_text")
 	desc_text.pop()
 	desc_text.add_text(". May the fortune of the stars be with you!")
 	
@@ -139,3 +144,12 @@ func build_rewards_display():
 		vals.append(val_cell)
 	for cell in vals:
 		rewards_container.add_child(cell)
+		
+func build_eligible_pilots_list():
+	var pilots = mission.get_eligible_pilots()
+	for child in eligible_pilots_container.get_children():
+		child.queue_free()
+	for pilot in pilots:
+		var item = load("res://UnitMenuItem/UnitNarrowSummary.tscn").instantiate()
+		item.character = pilot
+		eligible_pilots_container.add_child(item)

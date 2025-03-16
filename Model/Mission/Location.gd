@@ -1,22 +1,11 @@
 extends MissionComponent
 class_name Location
 
-var name: String
-var controller: Faction
+@export var name: String
+@export var controller: Faction
 
-class Mercury extends Location:
-	func _init():
-		name = "Mercury"
-		#controller = FactionManager.FascistEmpire
-	
-class Venus extends Location:
-	func _init():
-		name = "Venus"
-		#controller = FactionManager.SexyAliens
-		
-class Earth extends Location:
-	func _init():
-		name = "Earth"
-		#controller = FactionManager.PluckyRebels
-
-static var AllLocations = [Mercury.new(), Venus.new(), Earth.new()]
+func get_base_rep_reward(mission: Mission) -> Dictionary[Faction, int]:
+	var rep: Dictionary[Faction, int] = {}
+	if mission.target and mission.target == controller:
+		rep[mission.target] = -20
+	return rep

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_ajwjr")
-name = ""
+name = "Deliver"
 objective_verbs = PackedStringArray("deliver", "smuggle in", "smuggle out")
 objective_target = PackedStringArray("seven tons of butter", "a suspiciously ticking package", "a large crate of opossums", "counterfeit postage stamps", "a diplomatic delegation of blood cultists", "some rich, obnoxious tourists")
 objective_target_subjects = PackedStringArray()

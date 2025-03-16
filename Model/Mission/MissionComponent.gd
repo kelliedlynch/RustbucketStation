@@ -17,8 +17,8 @@ func apply_money_reward_multiplier(_mission: Mission, _base_val: int) -> int:
 func apply_rep_reward_multiplier(_mission: Mission, base_val: Dictionary[Faction, int]) -> Dictionary[Faction, int]:
 	return {}
 
-func get_base_requirements(_mission: Mission) -> Dictionary:
-	return {}
-	
-func apply_requirements_modifiers(_mission: Mission) -> Dictionary:
-	return {}
+func get_base_requirements(_mission: Mission) -> MissionRequirements:
+	return MissionRequirements.new()
+
+func apply_requirements_modifiers(_mission: Mission, base_val: MissionRequirements) -> MissionRequirements:
+	return MissionRequirements.new_blank()

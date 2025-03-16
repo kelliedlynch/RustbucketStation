@@ -20,6 +20,9 @@ config/icon="res://icon.svg"
 Scaling="*res://Scaling.gd"
 Player="*res://Player.gd"
 FactionManager="*res://Model/Faction/FactionManager.gd"
+LocationManager="*res://Model/Mission/LocationManager.gd"
+CharacterManager="*res://Character/CharacterManager.gd"
+Game="*res://Game.gd"
 
 [display]
 
