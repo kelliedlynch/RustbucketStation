@@ -1,8 +1,8 @@
 extends Resource
 class_name Mission
 
-var origin: Faction
-var target: Faction
+var origin: FactionComponent
+var target: FactionComponent
 var location: Location
 var objective: Objective
 
@@ -81,8 +81,6 @@ func get_eligible_pilots() -> Array[Character]:
 	
 	for pilot in CharacterManager.in_station:
 		var is_eligible = true
-		if pilot.name == "Bri":
-			pass
 		for prop in reqs.get_property_list():
 			if prop.name.begins_with("stat_"):
 				if prop.name.ends_with("_min"):

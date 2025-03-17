@@ -1,0 +1,194 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbp76h323kiku"]
+
+[ext_resource type="Script" uid="uid://bedcsa1s1mptw" path="res://Interface/MissionBuilder/MissionBuilder.gd" id="1_s0yvv"]
+[ext_resource type="Theme" uid="uid://bw7068hor8c7d" path="res://Interface/MissionBuilder/OptionButtonTheme.tres" id="3_v4v2n"]
+[ext_resource type="PackedScene" uid="uid://b3l26hpj3rqxn" path="res://UnitMenuItem/UnitNarrowSummary.tscn" id="4_j7l0k"]
+[ext_resource type="StyleBox" uid="uid://du31smfdmdgsb" path="res://Interface/MenuHeader.tres" id="4_xcr7c"]
+[ext_resource type="PackedScene" uid="uid://df6rhbbtuffn4" path="res://Interface/MenuCell.tscn" id="5_rxprf"]
+[ext_resource type="LabelSettings" uid="uid://cct1160ti5774" path="res://Interface/MenuHeaderNeutral.tres" id="6_d20cg"]
+[ext_resource type="PackedScene" uid="uid://cdwtdj8vxcbl5" path="res://Interface/DynamicFrame/DynamicFrame.tscn" id="7_moilo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4v2n"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.113049, 0.113049, 0.113049, 0.462745)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s0yvv")
+
+[node name="ComponentSelectorFrame" parent="." instance=ExtResource("7_moilo")]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 90.0
+offset_right = 575.0
+offset_bottom = 437.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ComponentSelectorFrame"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="ComponentSelectorFrame/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="OriginLabel" type="Label" parent="ComponentSelectorFrame/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Origin"
+
+[node name="FactionOrigin" type="OptionButton" parent="ComponentSelectorFrame/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_v4v2n")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+
+[node name="TargetLabel" type="Label" parent="ComponentSelectorFrame/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Target"
+
+[node name="FactionTarget" type="OptionButton" parent="ComponentSelectorFrame/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_v4v2n")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+
+[node name="LocationLabel" type="Label" parent="ComponentSelectorFrame/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Location"
+
+[node name="Location" type="OptionButton" parent="ComponentSelectorFrame/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_v4v2n")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+
+[node name="ObjectiveLabel" type="Label" parent="ComponentSelectorFrame/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Objective"
+
+[node name="Objective" type="OptionButton" parent="ComponentSelectorFrame/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_v4v2n")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+
+[node name="RandomizeButton" type="Button" parent="ComponentSelectorFrame/VBoxContainer"]
+layout_mode = 2
+text = "Randomize"
+
+[node name="RewardsSummaryFrame" parent="." instance=ExtResource("7_moilo")]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 478.0
+offset_right = 679.0
+offset_bottom = 795.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RewardsSummaryFrame"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RewardsSummaryFrame/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SpaceBucksLabel" parent="RewardsSummaryFrame/VBoxContainer/HBoxContainer" instance=ExtResource("5_rxprf")]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_xcr7c")
+label_settings = ExtResource("6_d20cg")
+cell_type = 0
+text = "SpaceBucks"
+
+[node name="MenuHeaderCell" parent="RewardsSummaryFrame/VBoxContainer/HBoxContainer" instance=ExtResource("5_rxprf")]
+layout_mode = 2
+text = "0"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RewardsSummaryFrame/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ReputationLabel" type="Label" parent="RewardsSummaryFrame/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Reputation"
+horizontal_alignment = 1
+
+[node name="FactionRewards" type="GridContainer" parent="RewardsSummaryFrame/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MissionSummaryFrame" parent="." instance=ExtResource("7_moilo")]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 107.0
+offset_right = 1267.0
+offset_bottom = 707.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MissionSummaryFrame"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MissionSummaryFrame/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Attention Space Heroes!"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MissionSummaryFrame/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v4v2n")
+
+[node name="DescText" type="RichTextLabel" parent="MissionSummaryFrame/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+fit_content = true
+
+[node name="EligiblePilotsFrame" parent="." instance=ExtResource("7_moilo")]
+layout_mode = 0
+offset_left = 1383.0
+offset_top = 59.0
+offset_right = 1783.0
+offset_bottom = 659.0
+
+[node name="EligiblePilots" type="MarginContainer" parent="EligiblePilotsFrame"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EligiblePilotsFrame/EligiblePilots"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="EligiblePilotsFrame/EligiblePilots/VBoxContainer"]
+layout_mode = 2
+text = "Eligible Pilots"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="EligiblePilotsFrame/EligiblePilots/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EligiblePilotsContainer" type="VBoxContainer" parent="EligiblePilotsFrame/EligiblePilots/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="UnitMenuRow2" parent="EligiblePilotsFrame/EligiblePilots/VBoxContainer/ScrollContainer/EligiblePilotsContainer" instance=ExtResource("4_j7l0k")]
+layout_mode = 2

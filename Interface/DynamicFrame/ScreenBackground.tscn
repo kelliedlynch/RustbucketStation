@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyc4gvvmusfp7"]
+
+[ext_resource type="Texture2D" uid="uid://eivun21oo3n" path="res://Graphics/white_pixel.png" id="1_xnun8"]
+[ext_resource type="Script" uid="uid://b6p8bmsod8cra" path="res://Interface/DynamicFrame/ScreenBackground.gd" id="2_oyixm"]
+
+[node name="Background" type="TextureRect"]
+self_modulate = Color(0.096983, 0.0956198, 0.296846, 1)
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xnun8")
+expand_mode = 1
+script = ExtResource("2_oyixm")
+bg_color = Color(0.096983, 0.0956198, 0.296846, 1)
+line_color = Color(0.133247, 0.23849, 0.356989, 1)
+
+[node name="Lines" type="Node2D" parent="."]
+modulate = Color(0.133247, 0.23849, 0.356989, 1)
+self_modulate = Color(1, 1, 1, 1.00037)

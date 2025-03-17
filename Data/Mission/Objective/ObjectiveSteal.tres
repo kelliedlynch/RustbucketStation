@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=3 uid="uid://vm5n6tjev3yw"]
 
-[ext_resource type="Script" uid="uid://bscm1aph4bbxq" path="res://Model/Mission/ObjectiveSteal.gd" id="1_u3ano"]
+[ext_resource type="Script" uid="uid://bscm1aph4bbxq" path="res://Model/Mission/Component/Objective/ObjectiveSteal.gd" id="1_u3ano"]
 
 [resource]
 script = ExtResource("1_u3ano")

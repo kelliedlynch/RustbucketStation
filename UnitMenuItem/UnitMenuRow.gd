@@ -16,7 +16,7 @@ extends MarginContainer
 
 var character: Character
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if character:
 		name_label.text = character.name
 		charm_label.text = str(character.stat_charm)

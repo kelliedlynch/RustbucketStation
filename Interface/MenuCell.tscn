@@ -2,7 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://beftae1rdoriu" path="res://Interface/MenuValue.tres" id="1_3h163"]
 [ext_resource type="Script" uid="uid://bx61nfgeqi3bq" path="res://Interface/MenuCell.gd" id="2_gwhuj"]
-[ext_resource type="LabelSettings" uid="uid://24fpsfd1ml7f" path="res://Interface/MenuValueNeutral.tres" id="3_3af3n"]
+[ext_resource type="LabelSettings" uid="uid://24fpsfd1ml7f" path="res://Interface/MissionBuilder/MenuValueNeutral.tres" id="3_3af3n"]
 
 [node name="MenuHeaderCell" type="PanelContainer"]
 custom_minimum_size = Vector2(40, 0)
