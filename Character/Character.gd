@@ -36,3 +36,6 @@ func get_random_portrait() -> Texture2D:
 	var portraits = ResourceLoader.list_directory("res://Graphics/Portraits")
 	var filename = portraits[randi_range(0, portraits.size() - 1)]
 	return load("res://Graphics/Portraits/" + filename)
+
+func pick_current_action():
+	pass

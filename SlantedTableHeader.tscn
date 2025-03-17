@@ -3,31 +3,30 @@
 [ext_resource type="Script" uid="uid://cbnnusq6syly5" path="res://SlantedHeader.gd" id="1_0vdnf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lusw7"]
-content_margin_top = 0.0
-content_margin_bottom = 3.0
 skew = Vector2(-1, 0)
 border_width_top = 2
 border_width_bottom = 2
-expand_margin_left = 16.0
-expand_margin_right = 16.0
+expand_margin_left = 17.0
+expand_margin_right = 17.0
 
 [node name="SlantedHeader" type="Container"]
-offset_right = 29.4
-offset_bottom = 69.0
+offset_right = 32.0
+offset_bottom = 137.179
+size_flags_horizontal = 3
 script = ExtResource("1_0vdnf")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = -12
-theme_override_constants/margin_bottom = -16
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+[node name="StylePanel" type="PanelContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lusw7")
 
-[node name="TextLabel" type="Label" parent="MarginContainer/PanelContainer"]
+[node name="TextLabel" type="Label" parent="MarginContainer/StylePanel"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Faction"
+text = "Faction Test Test"
