@@ -5,6 +5,13 @@ func get_base_requirements(_mission: Mission) -> MissionRequirements:
 	req.stat_stealth_min = 20
 	return req
 	
+func get_base_needs_satisfaction(_mission: Mission) -> Dictionary[String, int]:
+	var needs: Dictionary[String, int] = {
+		"adventure": 10,
+		"vice": 20
+	}
+	return needs
+	
 #func apply_requirements_modifiers(_mission: Mission) -> MissionRequirements:
 	#return MissionRequirements.new()
 #func _init() -> void:

@@ -192,3 +192,7 @@ size_flags_vertical = 3
 
 [node name="UnitMenuRow2" parent="EligiblePilotsFrame/EligiblePilots/VBoxContainer/ScrollContainer/EligiblePilotsContainer" instance=ExtResource("4_j7l0k")]
 layout_mode = 2
+
+[node name="PostMission" type="Button" parent="EligiblePilotsFrame/EligiblePilots/VBoxContainer"]
+layout_mode = 2
+text = "Start Mission"

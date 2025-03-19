@@ -1,0 +1,157 @@
+[gd_scene load_steps=12 format=3 uid="uid://murpraarljcp"]
+
+[ext_resource type="PackedScene" uid="uid://ba5dp78yh7n5t" path="res://SpaceBackground.tscn" id="1_dp36p"]
+[ext_resource type="Script" uid="uid://ckm5v3dooegf6" path="res://MainGameScene.gd" id="1_t7cbl"]
+[ext_resource type="Theme" uid="uid://d2s3l7uarun4l" path="res://Interface/UIButton.tres" id="2_t7cbl"]
+[ext_resource type="Texture2D" uid="uid://tjgxjkkpghn4" path="res://Graphics/Icons/award_ribbon.png" id="3_lhppi"]
+[ext_resource type="Texture2D" uid="uid://b4sebah277pjs" path="res://Graphics/Icons/hit_target.png" id="5_holyq"]
+[ext_resource type="PackedScene" uid="uid://bqydt38wvyc8j" path="res://Interface/ReputationMenu.tscn" id="5_lhppi"]
+[ext_resource type="Texture2D" uid="uid://doh3lkripxhn0" path="res://Graphics/Icons/checklist.png" id="6_ccfle"]
+[ext_resource type="PackedScene" uid="uid://dbp76h323kiku" path="res://Interface/MissionBuilder/MissionBuilder.tscn" id="6_rlhik"]
+[ext_resource type="Script" uid="uid://bwkh6qv5hpero" path="res://MissionList.gd" id="9_elsyk"]
+[ext_resource type="PackedScene" uid="uid://cdwtdj8vxcbl5" path="res://Interface/DynamicFrame/DynamicFrame.tscn" id="10_48cxd"]
+[ext_resource type="Texture2D" uid="uid://dmlp57ua85tsx" path="res://Graphics/Icons/fastForward.png" id="11_48cxd"]
+
+[node name="MainGameScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t7cbl")
+
+[node name="SpaceBackground" parent="." instance=ExtResource("1_dp36p")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuButtons" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="RepMenuButton" type="Button" parent="HBoxContainer/MenuButtons"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("2_t7cbl")
+toggle_mode = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MenuButtons/RepMenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MenuButtons/RepMenuButton/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_lhppi")
+expand_mode = 1
+
+[node name="MissionBuilderButton" type="Button" parent="HBoxContainer/MenuButtons"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("2_t7cbl")
+toggle_mode = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MenuButtons/MissionBuilderButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MenuButtons/MissionBuilderButton/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("5_holyq")
+expand_mode = 1
+
+[node name="MissionListButton" type="Button" parent="HBoxContainer/MenuButtons"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme = ExtResource("2_t7cbl")
+toggle_mode = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MenuButtons/MissionListButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MenuButtons/MissionListButton/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("6_ccfle")
+expand_mode = 1
+
+[node name="MainContentArea" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ReputationMenu" parent="HBoxContainer/MainContentArea" instance=ExtResource("5_lhppi")]
+visible = false
+layout_mode = 2
+
+[node name="MissionBuilder" parent="HBoxContainer/MainContentArea" instance=ExtResource("6_rlhik")]
+visible = false
+layout_mode = 2
+
+[node name="MissionList" type="Control" parent="HBoxContainer/MainContentArea"]
+visible = false
+layout_mode = 2
+script = ExtResource("9_elsyk")
+
+[node name="DynamicFrame" parent="HBoxContainer/MainContentArea/MissionList" instance=ExtResource("10_48cxd")]
+layout_mode = 0
+
+[node name="ListContainer" type="VBoxContainer" parent="HBoxContainer/MainContentArea/MissionList/DynamicFrame"]
+layout_mode = 2
+
+[node name="AdvanceButton" type="Button" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+offset_left = 1752.0
+offset_top = 937.0
+offset_right = 1880.0
+offset_bottom = 1065.0
+theme = ExtResource("2_t7cbl")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="AdvanceButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="TextureRect" type="TextureRect" parent="AdvanceButton/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("11_48cxd")
+expand_mode = 1

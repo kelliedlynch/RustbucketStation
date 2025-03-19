@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqydt38wvyc8j"]
+
+[ext_resource type="PackedScene" uid="uid://cdwtdj8vxcbl5" path="res://Interface/DynamicFrame/DynamicFrame.tscn" id="1_jc50d"]
+[ext_resource type="PackedScene" uid="uid://bs367y3jdg3yh" path="res://Interface/FactionRelationshipTable.tscn" id="2_yiwqa"]
+[ext_resource type="PackedScene" uid="uid://c1mpar55mmrj6" path="res://Interface/PlayerReputationTable.tscn" id="3_v285r"]
+
+[node name="ReputationMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DynamicFrame" parent="." instance=ExtResource("1_jc50d")]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 179.0
+offset_right = 904.0
+offset_bottom = 625.0
+
+[node name="Control" parent="DynamicFrame" instance=ExtResource("2_yiwqa")]
+layout_mode = 2
+
+[node name="DynamicFrame2" parent="." instance=ExtResource("1_jc50d")]
+layout_mode = 0
+offset_left = 1072.0
+offset_top = 176.0
+offset_right = 1472.0
+offset_bottom = 625.0
+
+[node name="PlayerReputationTable" parent="DynamicFrame2" instance=ExtResource("3_v285r")]
+layout_mode = 2

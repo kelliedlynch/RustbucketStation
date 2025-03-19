@@ -18,6 +18,7 @@ extends Control
 @onready var eligible_pilots_container: Container = find_child("EligiblePilotsContainer")
 
 @onready var randomize_button: Button = find_child("RandomizeButton")
+@onready var post_button: Button = find_child("PostMission")
 
 var mission: Mission
 
@@ -42,6 +43,12 @@ func _ready() -> void:
 	location.item_selected.connect(_on_component_selected.bind(location, "location"))
 	objective.item_selected.connect(_on_component_selected.bind(objective, "objective"))
 	randomize_button.pressed.connect(randomize_quest)
+	post_button.pressed.connect(_post_mission)
+	randomize_quest()
+	
+func _post_mission():
+	MissionManager.post_mission(mission)
+	mission = Mission.new()
 	randomize_quest()
 	
 func _on_component_selected(index: int, button: OptionButton, prop: StringName):
@@ -67,8 +74,6 @@ func populate_component_button(button: OptionButton, components: Array):
 		button.add_item(components[i].name, i)
 		button.set_item_metadata(i, components[i])
 		popup.set_item_as_radio_checkable(i, false)
-		
-
 		
 func build_description(_val = null):
 	desc_text.clear()

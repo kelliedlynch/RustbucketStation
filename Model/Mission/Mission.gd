@@ -30,11 +30,14 @@ var components: Array[MissionComponent]:
 	get:
 		var test: Array[MissionComponent] = [origin, target, location, objective]
 		return test
-		#var comp: Array[MissionComponent] = []
-		#for component in [origin, target, location, objective]:
-			#if component:
-				#comp.append(component)
-		#return comp
+
+var needs_satisfaction: Dictionary[String, int]:
+	get:
+		var base: Dictionary[String, int] = _get_base_needs_satisfaction()
+		var modified: Dictionary[String, int] = _apply_needs_satisfaction_modifiers(base)
+		return modified
+		
+var crew: Array[Character] = []
 
 func _apply_money_reward_multipliers(base_reward):
 	var multiplied = base_reward
@@ -75,23 +78,45 @@ func _apply_requirements_modifiers(base_reqs: MissionRequirements) -> MissionReq
 		modified_reqs.add(component.apply_requirements_modifiers(self, base_reqs))
 	return modified_reqs
 
+func _get_base_needs_satisfaction() -> Dictionary[String, int]:
+	var base: Dictionary[String, int] = {}
+	for component: MissionComponent in components:
+		var component_rewards = component.get_base_needs_satisfaction(self)
+		for key in component_rewards:
+			if not base.has(key):
+				base[key] = 0
+			base[key] += component_rewards[key]
+	return base
+
+func _apply_needs_satisfaction_modifiers(base: Dictionary[String, int]) -> Dictionary[String, int]:
+	var modified: Dictionary[String, int] = base.duplicate()
+	for component: MissionComponent in components:
+		var component_rewards = component.apply_needs_satisfaction_modifiers(self, base)
+		for key in component_rewards:
+			if not base.has(key):
+				continue
+			modified[key] += component_rewards[key]
+	return modified
+
 func get_eligible_pilots() -> Array[Character]:
 	var eligible: Array[Character] = []
 	var reqs = requirements
 	
 	for pilot in CharacterManager.in_station:
-		var is_eligible = true
-		for prop in reqs.get_property_list():
-			if prop.name.begins_with("stat_"):
-				if prop.name.ends_with("_min"):
-					if pilot.get(prop.name.left(-4)) < reqs.get(prop.name):
-						is_eligible = false
-						break
-				if prop.name.ends_with("_max"):
-					if pilot.get(prop.name.left(-4)) > reqs.get(prop.name):
-						is_eligible = false
-						break
-		if is_eligible:
+		if is_pilot_eligible(pilot):
 			eligible.append(pilot)
-			pass
 	return eligible
+
+func is_pilot_eligible(pilot: Character) -> bool:
+	var is_eligible = true
+	for prop in requirements.get_property_list():
+		if prop.name.begins_with("stat_"):
+			if prop.name.ends_with("_min"):
+				if pilot.get(prop.name.left(-4)) < requirements.get(prop.name):
+					is_eligible = false
+					break
+			if prop.name.ends_with("_max"):
+				if pilot.get(prop.name.left(-4)) > requirements.get(prop.name):
+					is_eligible = false
+					break
+	return is_eligible

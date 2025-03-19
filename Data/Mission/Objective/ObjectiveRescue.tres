@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Objective" load_steps=2 format=3 uid="uid://dqyclv5u8wovt"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dqyclv5u8wovt"]
 
-[ext_resource type="Script" uid="uid://dxd56exm04s1v" path="res://Model/Mission/Component/Objective/Objective.gd" id="1_ciuwu"]
+[ext_resource type="Script" uid="uid://b6do5j2bhiuyw" path="res://Model/Mission/Component/Objective/ObjectiveRescue.gd" id="1_ciuwu"]
 
 [resource]
 script = ExtResource("1_ciuwu")
