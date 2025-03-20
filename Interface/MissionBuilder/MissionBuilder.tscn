@@ -162,6 +162,10 @@ layout_mode = 2
 size_flags_vertical = 3
 fit_content = true
 
+[node name="PostMission" type="Button" parent="MissionSummaryFrame/VBoxContainer"]
+layout_mode = 2
+text = "Post Mission"
+
 [node name="EligiblePilotsFrame" parent="." instance=ExtResource("7_moilo")]
 layout_mode = 0
 offset_left = 1383.0
@@ -192,7 +196,3 @@ size_flags_vertical = 3
 
 [node name="UnitMenuRow2" parent="EligiblePilotsFrame/EligiblePilots/VBoxContainer/ScrollContainer/EligiblePilotsContainer" instance=ExtResource("4_j7l0k")]
 layout_mode = 2
-
-[node name="PostMission" type="Button" parent="EligiblePilotsFrame/EligiblePilots/VBoxContainer"]
-layout_mode = 2
-text = "Start Mission"

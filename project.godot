@@ -21,7 +21,7 @@ Scaling="*res://Utility/Scaling.gd"
 Player="*res://Player.gd"
 FactionManager="*res://Model/Faction/FactionManager.gd"
 LocationManager="*res://Model/Mission/Component/Location/LocationManager.gd"
-CharacterManager="*res://Character/CharacterManager.gd"
+PilotManager="*res://Model/Pilot/PilotManager.gd"
 MissionManager="*res://Model/Mission/MissionManager.gd"
 Game="*res://Game.gd"
 

@@ -13,19 +13,21 @@ extends MarginContainer
 @onready var fame_bar: NeedsBar = find_child("FameBar")
 @onready var romance_bar: NeedsBar = find_child("RomanceBar")
 @onready var vice_bar: NeedsBar = find_child("ViceBar")
+@onready var status_label: Label = find_child("StatusLabel")
 
-var character: Character
+var character: Pilot
 
 func _process(_delta: float) -> void:
 	if character:
 		name_label.text = character.name
-		charm_label.text = str(character.stat_charm)
-		combat_label.text = str(character.stat_combat)
-		pilot_label.text = str(character.stat_pilot)
-		stealth_label.text = str(character.stat_stealth)
-		tech_label.text = str(character.stat_tech)
+		charm_label.text = str(character.stats.charm)
+		combat_label.text = str(character.stats.combat)
+		pilot_label.text = str(character.stats.pilot)
+		stealth_label.text = str(character.stats.stealth)
+		tech_label.text = str(character.stats.tech)
 		portrait_rect.texture = character.portrait
-		adventure_bar.value = character.need_adventure
-		fame_bar.value = character.need_fame
-		romance_bar.value = character.need_romance
-		vice_bar.value = character.need_vice
+		adventure_bar.value = character.needs.adventure
+		fame_bar.value = character.needs.fame
+		romance_bar.value = character.needs.romance
+		vice_bar.value = character.needs.vice
+		status_label.text = character.status.to_string()

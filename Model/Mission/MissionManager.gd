@@ -1,18 +1,30 @@
 extends Node
 
-var unclaimed_missions: Array[Mission] = []
-var active_missions: Array[Mission] = []
-var all_missions: Array[Mission]:
+var posted_missions: Array[Mission]:
 	get:
-		var arr = unclaimed_missions.duplicate()
-		arr.append_array(active_missions)
-		return arr
+		return all_missions.filter(func(x): return x.status == Mission.MissionStatus.POSTED)
+		
+#var not_full_missions: Array[Mission]:
+	#get:
+		#return all_missions.filter(func(x): return x.status == Mission.MissionStatus.POSTED and x.crew.size() < x.crew_size)
+var active_missions: Array[Mission]:
+	get:
+		return all_missions.filter(func(x): return x.status == Mission.MissionStatus.IN_PROGRESS)
+var all_missions: Array[Mission] = []
+
+func _on_game_begin():
+	Game.game_tick_advanced.connect(_on_game_tick_advanced)
 
 func post_mission(mission: Mission):
-	unclaimed_missions.append(mission)
+	all_missions.append(mission)
+	mission.status = Mission.MissionStatus.POSTED
+	Game.game_tick_advanced.connect(mission._on_game_tick_advanced)
 
-func assign_pilot_to_mission(mission: Mission, pilot: Character):
+func remove_mission(mission: Mission):
+	all_missions.erase(mission)
+
+func assign_pilot_to_mission(mission: Mission, pilot: Pilot):
 	mission.crew.append(pilot)
-	unclaimed_missions.erase(mission)
-	active_missions.append(mission)
-	
+
+func _on_game_tick_advanced(tick: int):
+	pass

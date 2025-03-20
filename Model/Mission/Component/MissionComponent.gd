@@ -21,7 +21,7 @@ func get_base_requirements(_mission: Mission) -> MissionRequirements:
 	return MissionRequirements.new()
 
 func apply_requirements_modifiers(_mission: Mission, _base_val: MissionRequirements) -> MissionRequirements:
-	return MissionRequirements.new_blank()
+	return MissionRequirements.new()
 
 func get_base_needs_satisfaction(_mission: Mission) -> Dictionary[String, int]:
 	return {} as Dictionary[String, int]

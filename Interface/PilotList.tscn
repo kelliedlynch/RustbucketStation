@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://35tkjlbtmnu6"]
+
+[ext_resource type="PackedScene" uid="uid://cdwtdj8vxcbl5" path="res://Interface/DynamicFrame/DynamicFrame.tscn" id="1_7eh7m"]
+[ext_resource type="Script" uid="uid://g8f55gy8hfu7" path="res://Interface/PilotList.gd" id="1_pn80n"]
+
+[node name="PilotList" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pn80n")
+
+[node name="DynamicFrame" parent="." instance=ExtResource("1_7eh7m")]
+layout_mode = 0
+offset_right = 910.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DynamicFrame"]
+layout_mode = 2
+
+[node name="ListItems" type="VBoxContainer" parent="DynamicFrame/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
