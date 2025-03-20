@@ -15,12 +15,20 @@ func _on_game_begin():
 	Game.game_tick_advanced.connect(_on_game_tick_advanced)
 	
 func _on_game_tick_advanced(_tick: int):
-	for pilot in in_station:
-		# TODO: order by greatest need so full characters don't snipe from empty ones
+	var by_needs: Array[Pilot] = in_station.duplicate()
+	by_needs.sort_custom(_sort_by_needs)
+	for pilot in by_needs:
 		var mission = choose_mission(pilot)
 		if mission:
 			MissionManager.assign_pilot_to_mission(mission, pilot)
 			pilot.status = PilotStatus.OnMission
+			
+func _sort_by_needs(a: Pilot, b: Pilot) -> bool:
+	var a_lowest_need = a.needs.values().min()
+	var b_lowest_need = b.needs.values().min()
+	if a_lowest_need == b_lowest_need:
+		return a.needs.values().reduce(func(accum, val): return accum + val, 0) < b.needs.values().reduce(func(accum, val): return accum + val, 0)
+	return a_lowest_need < b_lowest_need
 
 func create_pilot():
 	var pilot = Pilot.new(randi_range(1, 9))

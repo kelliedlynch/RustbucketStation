@@ -12,21 +12,21 @@
 offsets = PackedFloat32Array(0, 0.215768, 1)
 colors = PackedColorArray(0, 0.494118, 0.866667, 0, 0, 0.494582, 0.867055, 1, 0.615686, 0.458824, 1, 0)
 
-[sub_resource type="Gradient" id="Gradient_ktytb"]
-offsets = PackedFloat32Array(0, 0.446058, 0.636929, 0.76556, 0.991701, 1)
-colors = PackedColorArray(0.447059, 0.156863, 0.607843, 0, 0.254054, 0.419445, 0.768741, 0.611765, 0.627451, 0.215686, 0.847059, 0.34902, 0.0318753, 0.683055, 0.900834, 0.235294, 0.960487, 0.916815, 0.983779, 0.0370173, 1, 1, 1, 0)
-
-[sub_resource type="Gradient" id="Gradient_s4vgx"]
-offsets = PackedFloat32Array(0, 0.390042, 0.676349, 1)
-colors = PackedColorArray(0.515507, 0.634552, 0.903014, 1, 0.522994, 0.803669, 0.975898, 1, 0.56, 0.764, 0.8, 1, 0.855749, 0.975839, 0.999154, 1)
-
 [sub_resource type="Gradient" id="Gradient_u5f74"]
-offsets = PackedFloat32Array(0, 0.298755, 0.748963, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0.88, 0.74448, 0.1408, 0.431373, 0.8, 0.4976, 0.128, 0.65098, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.514614, 0.915449)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.585595)
+
+[sub_resource type="Gradient" id="Gradient_ktytb"]
+offsets = PackedFloat32Array(0, 0.649269, 1)
+colors = PackedColorArray(1, 0.566667, 0, 1, 1, 1, 1, 1, 1, 1, 0.619608, 1)
 
 [sub_resource type="Gradient" id="Gradient_1qwb8"]
 offsets = PackedFloat32Array(0, 0.647303, 1)
 colors = PackedColorArray(0.733333, 0.266667, 0.592157, 0.266667, 0.905882, 0.482353, 0.133333, 0.372549, 1, 1, 0.196078, 0.407843)
+
+[sub_resource type="Gradient" id="Gradient_s4vgx"]
+offsets = PackedFloat32Array(0, 0.390042, 0.676349, 0.947808, 1)
+colors = PackedColorArray(0.1518, 0.24426, 0.46, 1, 0.311848, 0.0012256, 0.612642, 1, 0, 0.3105, 0.81, 1, 0, 0.548203, 0.661232, 1, 1, 1, 0, 1)
 
 [node name="SpaceBackground" type="Node2D"]
 script = ExtResource("1_lhksq")
@@ -39,8 +39,8 @@ centered = false
 
 [node name="NebulaBackground" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(960, 540)
-rotation = 78.054
+position = Vector2(785.519, 870.052)
+rotation = 220.277
 texture = ExtResource("2_fvrbn")
 
 [node name="SmokeEmitter" type="CPUParticles2D" parent="."]
@@ -67,138 +67,129 @@ scale_amount_max = 0.7
 color = Color(0.72549, 0.886275, 1, 0.392157)
 color_ramp = SubResource("Gradient_timbr")
 
-[node name="BlueEmitters" type="Node2D" parent="."]
-
-[node name="SmokeEmitter2" type="CPUParticles2D" parent="BlueEmitters"]
-position = Vector2(638.377, 426.619)
-amount = 600
-texture = ExtResource("4_timbr")
-lifetime = 60.0
-preprocess = 60.0
-direction = Vector2(0.71318, -0.70098)
-spread = 28.3713
-gravity = Vector2(-0.368301, -0.929707)
-initial_velocity_min = 30.0
-initial_velocity_max = 50.0
-angular_velocity_min = 1.0
-angular_velocity_max = 1.0
-orbit_velocity_min = -0.01
-orbit_velocity_max = 0.01
-radial_accel_min = -2.0
-radial_accel_max = -0.5
-damping_min = 0.4
-damping_max = 0.6
-angle_max = 60.0
-scale_amount_min = 0.3
-scale_amount_max = 0.5
-color = Color(1, 1, 1, 0.372549)
-color_ramp = SubResource("Gradient_ktytb")
-color_initial_ramp = SubResource("Gradient_s4vgx")
-
-[node name="SmokeEmitter3" type="CPUParticles2D" parent="BlueEmitters"]
-position = Vector2(390.443, 536.46)
-amount = 600
-texture = ExtResource("4_timbr")
-lifetime = 60.0
-preprocess = 60.0
-direction = Vector2(-0.0633454, 0.997992)
-spread = 32.8616
-gravity = Vector2(0.585311, -0.810809)
-initial_velocity_min = 30.0
-initial_velocity_max = 50.0
-angular_velocity_min = 1.0
-angular_velocity_max = 1.0
-orbit_velocity_min = -0.01
-orbit_velocity_max = 0.01
-radial_accel_min = -2.0
-radial_accel_max = -0.5
-damping_min = 0.4
-damping_max = 0.6
-angle_max = 60.0
-scale_amount_min = 0.3
-scale_amount_max = 0.5
-color = Color(1, 1, 1, 0.372549)
-color_ramp = SubResource("Gradient_ktytb")
-color_initial_ramp = SubResource("Gradient_s4vgx")
-
-[node name="SmokeEmitter4" type="CPUParticles2D" parent="BlueEmitters"]
-position = Vector2(941.679, 463.564)
-amount = 600
-texture = ExtResource("4_timbr")
-lifetime = 60.0
-preprocess = 60.0
-direction = Vector2(0.748502, -0.663132)
-spread = 38.02
-gravity = Vector2(0.677676, 0.73536)
-initial_velocity_min = 30.0
-initial_velocity_max = 50.0
-angular_velocity_min = 1.0
-angular_velocity_max = 1.0
-orbit_velocity_min = -0.01
-orbit_velocity_max = 0.01
-radial_accel_min = -2.0
-radial_accel_max = -0.5
-damping_min = 0.4
-damping_max = 0.6
-angle_max = 60.0
-scale_amount_min = 0.3
-scale_amount_max = 0.5
-color = Color(1, 1, 1, 0.372549)
-color_ramp = SubResource("Gradient_ktytb")
-color_initial_ramp = SubResource("Gradient_s4vgx")
-
 [node name="OrangeEmitters" type="Node2D" parent="."]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="OrangeEmitters"]
-position = Vector2(516.711, 808.685)
+position = Vector2(1309.26, 877.354)
 amount = 600
 texture = ExtResource("7_u5f74")
-lifetime = 60.0
+lifetime = 40.0
 preprocess = 60.0
-direction = Vector2(0.11589, 0.993262)
+direction = Vector2(-0.795576, 0.605854)
 spread = 1.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 200.0
-initial_velocity_max = 280.0
-orbit_velocity_min = -0.00994417
-orbit_velocity_max = -0.00272413
-tangential_accel_min = 26.0984
-tangential_accel_max = 26.0984
-damping_min = 50.0
-damping_max = 80.0
+initial_velocity_min = 20.0
+initial_velocity_max = 24.0
+radial_accel_min = -8.0
+radial_accel_max = -6.0
+tangential_accel_min = -5.56346
+tangential_accel_max = -5.56346
 angle_max = 184.4
 scale_amount_min = 0.1
-scale_amount_max = 0.2
-color = Color(1, 0.972549, 0.32549, 1)
+scale_amount_max = 0.15
+color = Color(1, 0.792157, 0.192157, 0.545098)
 color_ramp = SubResource("Gradient_u5f74")
-color_initial_ramp = SubResource("Gradient_1qwb8")
+color_initial_ramp = SubResource("Gradient_ktytb")
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="OrangeEmitters"]
 visible = false
-position = Vector2(440.998, 225.404)
+position = Vector2(1063.28, 467.619)
 amount = 600
 texture = ExtResource("7_u5f74")
 lifetime = 60.0
 preprocess = 60.0
-direction = Vector2(0.81076, -0.585379)
+direction = Vector2(0.488511, 0.872558)
 spread = 1.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 200.0
-initial_velocity_max = 280.0
-orbit_velocity_min = -0.00374003
-orbit_velocity_max = -0.00332147
-tangential_accel_min = -26.2083
-tangential_accel_max = -26.2083
-damping_min = 50.0
-damping_max = 80.0
+initial_velocity_min = 140.0
+initial_velocity_max = 180.0
+radial_accel_min = -20.0
+radial_accel_max = -18.0
+tangential_accel_min = 4.69647
+tangential_accel_max = 4.69647
 angle_max = 184.4
-scale_amount_min = 0.1
-scale_amount_max = 0.2
-color = Color(1, 0.972549, 0.678431, 0.509804)
-color_ramp = SubResource("Gradient_u5f74")
+scale_amount_min = 0.2
+scale_amount_max = 0.3
 color_initial_ramp = SubResource("Gradient_1qwb8")
 
+[node name="BlueEmitters" type="Node2D" parent="."]
+
+[node name="SmokeEmitter2" type="CPUParticles2D" parent="BlueEmitters"]
+position = Vector2(332.355, 454.514)
+amount = 600
+texture = ExtResource("4_timbr")
+lifetime = 60.0
+preprocess = 60.0
+direction = Vector2(-0.851323, 0.524642)
+spread = 26.7387
+gravity = Vector2(-0.986474, 0.163915)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+angular_velocity_min = 1.0
+angular_velocity_max = 1.0
+orbit_velocity_min = -0.01
+orbit_velocity_max = 0.01
+radial_accel_min = -2.0
+radial_accel_max = -1.5
+damping_min = 0.4
+damping_max = 0.6
+angle_max = 60.0
+scale_amount_min = 0.3
+scale_amount_max = 0.5
+color = Color(1, 1, 1, 0.180392)
+color_initial_ramp = SubResource("Gradient_s4vgx")
+
+[node name="SmokeEmitter3" type="CPUParticles2D" parent="BlueEmitters"]
+position = Vector2(397.805, 772.315)
+amount = 600
+texture = ExtResource("4_timbr")
+lifetime = 60.0
+preprocess = 60.0
+direction = Vector2(-0.109644, -0.993971)
+spread = 26.9642
+gravity = Vector2(-0.467233, 0.884134)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+angular_velocity_min = 1.0
+angular_velocity_max = 1.0
+orbit_velocity_min = -0.01
+orbit_velocity_max = 0.01
+radial_accel_min = -2.0
+radial_accel_max = -1.5
+damping_min = 0.4
+damping_max = 0.6
+angle_max = 60.0
+scale_amount_min = 0.3
+scale_amount_max = 0.5
+color = Color(1, 1, 1, 0.180392)
+color_initial_ramp = SubResource("Gradient_s4vgx")
+
+[node name="SmokeEmitter4" type="CPUParticles2D" parent="BlueEmitters"]
+position = Vector2(1132.66, 313.498)
+amount = 600
+texture = ExtResource("4_timbr")
+lifetime = 60.0
+preprocess = 60.0
+direction = Vector2(-0.989895, 0.141805)
+spread = 39.4487
+gravity = Vector2(-0.697134, 0.71694)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+angular_velocity_min = 1.0
+angular_velocity_max = 1.0
+orbit_velocity_min = -0.01
+orbit_velocity_max = 0.01
+radial_accel_min = -2.0
+radial_accel_max = -1.5
+damping_min = 0.4
+damping_max = 0.6
+angle_max = 60.0
+scale_amount_min = 0.3
+scale_amount_max = 0.5
+color = Color(1, 1, 1, 0.180392)
+color_initial_ramp = SubResource("Gradient_s4vgx")
+
 [node name="StarField" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-rotation = -4.69235
+position = Vector2(1325.41, 889.473)
+rotation = 146.832
 texture = ExtResource("3_timbr")

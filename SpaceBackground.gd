@@ -17,6 +17,11 @@ extends Node2D
 		for child in orange_smoke_emitters.get_children():
 			child.speed_scale = speed_factor
 
+@export var direction_change_interval: float = 30
+@export var gravity_change_interval: float = 10
+@export var gravity_intensity: float = 1
+@export var tan_accel_change_interval: float = 8
+
 var bg_rotate_tween: Tween
 var bg_move_tween: Tween
 var stars_rotate_tween: Tween
@@ -38,10 +43,14 @@ func _ready() -> void:
 	_set_layer_movement(background)
 	_set_layer_movement(stars)
 	#_set_layer_movement(smoke_emitter)
-	_set_smoke_emission()
+	#_set_smoke_emission()
 	for child in blue_smoke_emitters.get_children():
+		_set_smoke_direction(child)
+		_set_smoke_gravity(child)
 		_set_layer_movement(child)
 	for child in orange_smoke_emitters.get_children():
+		_set_smoke_direction(child)
+		_set_smoke_tan_accel(child)
 		_set_layer_movement(child)
 	
 func _set_smoke_emission() -> void:
@@ -64,15 +73,36 @@ func _set_smoke_emission() -> void:
 		var b = randf_range(-.01, .01)
 		var c = randf_range(24, 36)
 		c = -c if randi() & 1 else c
-		
-		#child.orbit_velocity_max = max(a, b)
-		#child.orbit_velocity_min = min(a, b)
 		child.tangential_accel_max = c
 		child.tangential_accel_min = c
-
 	var tween = create_tween()
 	tween.tween_interval(30 / speed_factor)
 	tween.tween_callback(_set_smoke_emission)
+	
+func _set_smoke_gravity(emitter: CPUParticles2D) -> void:
+	var grav_angle: float = randf_range(0, 2 * PI)
+	var grav_vec: Vector2 = Vector2.from_angle(grav_angle)
+	emitter.gravity = grav_vec * gravity_intensity
+	var tween = create_tween()
+	tween.tween_interval(gravity_change_interval / speed_factor)
+	tween.tween_callback(_set_smoke_gravity.bind(emitter))
+	
+func _set_smoke_direction(emitter: CPUParticles2D) -> void:
+	var angle: float = randf_range(0, 2 * PI)
+	var vec = Vector2.from_angle(angle)
+	emitter.direction = vec
+	var tween = create_tween()
+	tween.tween_interval(direction_change_interval / speed_factor)
+	tween.tween_callback(_set_smoke_direction.bind(emitter))
+	
+func _set_smoke_tan_accel(emitter: CPUParticles2D) -> void:
+	var val = randf_range(-6, -3)
+	val = val if randi() & 1 else -val
+	emitter.tangential_accel_max = val
+	emitter.tangential_accel_min = val
+	var tween = create_tween()
+	tween.tween_interval(tan_accel_change_interval / speed_factor)
+	tween.tween_callback(_set_smoke_tan_accel.bind(emitter))
 	
 func _set_bg_rotation() -> void:
 	bg_rotate_factor = randi_range(80, 100)

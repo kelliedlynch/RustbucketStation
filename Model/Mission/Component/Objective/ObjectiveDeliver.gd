@@ -8,5 +8,9 @@ func get_base_requirements(_mission: Mission) -> MissionRequirements:
 
 func get_base_needs_satisfaction(_mission: Mission) -> Dictionary[String, int]:
 	var needs: Dictionary[String, int] = {
+		adventure = 1,
+		fame = 1,
+		romance = 1,
+		vice = 1
 	}
 	return needs
