@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://bygblxodnmr8x"]
+
+[ext_resource type="Script" uid="uid://p637cdouop5n" path="res://Interface/MissionList/MissionListItem.gd" id="1_k3vtn"]
+[ext_resource type="PackedScene" uid="uid://b3l26hpj3rqxn" path="res://Interface/UnitMenuItem/UnitNarrowSummary.tscn" id="2_2dyor"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_k3vtn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="OriginLabel" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Origin"
+
+[node name="TargetLabel" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Target"
+
+[node name="LocationLabel" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Location"
+
+[node name="ObjectiveLabel" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Objective"
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="AssignedCrew" parent="HBoxContainer/MarginContainer" instance=ExtResource("2_2dyor")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TimeRemainingLabel" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-1"

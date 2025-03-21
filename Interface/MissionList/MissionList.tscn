@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxow8u7qbhm5n"]
+
+[ext_resource type="Script" uid="uid://bwkh6qv5hpero" path="res://Interface/MissionList/MissionList.gd" id="1_pjw8p"]
+[ext_resource type="PackedScene" uid="uid://cdwtdj8vxcbl5" path="res://Interface/DynamicFrame/DynamicFrame.tscn" id="2_io1ut"]
+
+[node name="MissionList" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pjw8p")
+
+[node name="DynamicFrame" parent="." instance=ExtResource("2_io1ut")]
+layout_mode = 2
+bg_color = Color(0.0823529, 0.172549, 0.329412, 1)
+line_color = Color(0.101961, 0.203922, 0.384314, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DynamicFrame"]
+layout_mode = 2
+
+[node name="ListItems" type="VBoxContainer" parent="DynamicFrame/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

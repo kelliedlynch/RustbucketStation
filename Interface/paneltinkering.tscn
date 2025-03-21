@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://bulf6bdepvkjb"]
+
+[ext_resource type="PackedScene" uid="uid://cdwtdj8vxcbl5" path="res://Interface/DynamicFrame/DynamicFrame.tscn" id="1_xmw14"]
+[ext_resource type="PackedScene" uid="uid://df6rhbbtuffn4" path="res://Interface/MenuCellSplit.tscn" id="2_lvere"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DynamicFrame" parent="." instance=ExtResource("1_xmw14")]
+layout_mode = 1
+bg_color = Color(0.0823529, 0.172549, 0.329412, 1)
+line_color = Color(0.101961, 0.203922, 0.384314, 1)
+
+[node name="Background" parent="DynamicFrame/BackgroundContainer" index="0"]
+self_modulate = Color(0.0108559, 0.137436, 0.172326, 1)
+bg_color = Color(0.0108559, 0.137436, 0.172326, 1)
+line_color = Color(0, 0.206575, 0.210195, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DynamicFrame"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DynamicFrame/VBoxContainer"]
+modulate = Color(0.488179, 1, 0.456276, 1)
+layout_mode = 2
+text = "Incoming Requests"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DynamicFrame/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DynamicFrame/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MenuHeaderCell4" parent="DynamicFrame/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_lvere")]
+layout_mode = 2
+
+[node name="MenuHeaderCell" parent="DynamicFrame/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_lvere")]
+layout_mode = 2
+
+[node name="MenuHeaderCell2" parent="DynamicFrame/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_lvere")]
+layout_mode = 2
+
+[node name="MenuHeaderCell5" parent="DynamicFrame/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_lvere")]
+layout_mode = 2
+
+[node name="MenuHeaderCell3" parent="DynamicFrame/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_lvere")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DynamicFrame/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MenuHeaderCell4" parent="DynamicFrame/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_lvere")]
+layout_mode = 2
+
+[node name="MenuHeaderCell" parent="DynamicFrame/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_lvere")]
+layout_mode = 2
+
+[node name="MenuHeaderCell2" parent="DynamicFrame/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_lvere")]
+layout_mode = 2
+
+[node name="MenuHeaderCell5" parent="DynamicFrame/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_lvere")]
+layout_mode = 2
+
+[node name="MenuHeaderCell3" parent="DynamicFrame/VBoxContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_lvere")]
+layout_mode = 2
+
+[editable path="DynamicFrame"]

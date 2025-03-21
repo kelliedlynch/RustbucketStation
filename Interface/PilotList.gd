@@ -4,6 +4,6 @@ extends Control
 
 func _ready() -> void:
 	for pilot in PilotManager.all_pilots:
-		var item = load("res://UnitMenuItem/UnitMenuRow.tscn").instantiate()
-		item.character = pilot
+		var item = load("uid://c82oohrayy22y").instantiate()
+		item.pilot = pilot
 		list_items_container.add_child(item)

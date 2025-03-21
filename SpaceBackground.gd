@@ -53,32 +53,6 @@ func _ready() -> void:
 		_set_smoke_tan_accel(child)
 		_set_layer_movement(child)
 	
-func _set_smoke_emission() -> void:
-	for child: CPUParticles2D in blue_smoke_emitters.get_children():
-		var angle: float = randf_range(0, 2 * PI)
-		var vec = Vector2.from_angle(angle)
-		child.direction = vec
-		var grav_angle: float = randf_range(0, 2 * PI)
-		var grav_vec: Vector2 = Vector2.from_angle(grav_angle)
-		child.gravity = grav_vec
-		var spread = randf_range(15, 40)
-		child.spread = spread
-	for child: CPUParticles2D in orange_smoke_emitters.get_children():
-		var angle: float = randf_range(0, 2 * PI)
-		var vec = Vector2.from_angle(angle)
-		child.direction = vec
-		var grav_angle: float = randf_range(0, 2 * PI)
-		var grav_vec: Vector2 = Vector2.from_angle(grav_angle)  * randf_range(1, 100)
-		var a = randf_range(-.01, .01)
-		var b = randf_range(-.01, .01)
-		var c = randf_range(24, 36)
-		c = -c if randi() & 1 else c
-		child.tangential_accel_max = c
-		child.tangential_accel_min = c
-	var tween = create_tween()
-	tween.tween_interval(30 / speed_factor)
-	tween.tween_callback(_set_smoke_emission)
-	
 func _set_smoke_gravity(emitter: CPUParticles2D) -> void:
 	var grav_angle: float = randf_range(0, 2 * PI)
 	var grav_vec: Vector2 = Vector2.from_angle(grav_angle)
@@ -96,7 +70,7 @@ func _set_smoke_direction(emitter: CPUParticles2D) -> void:
 	tween.tween_callback(_set_smoke_direction.bind(emitter))
 	
 func _set_smoke_tan_accel(emitter: CPUParticles2D) -> void:
-	var val = randf_range(-6, -3)
+	var val = randf_range(-.6, -.3)
 	val = val if randi() & 1 else -val
 	emitter.tangential_accel_max = val
 	emitter.tangential_accel_min = val

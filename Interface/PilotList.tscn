@@ -3,8 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cdwtdj8vxcbl5" path="res://Interface/DynamicFrame/DynamicFrame.tscn" id="1_7eh7m"]
 [ext_resource type="Script" uid="uid://g8f55gy8hfu7" path="res://Interface/PilotList.gd" id="1_pn80n"]
 
-[node name="PilotList" type="Control"]
-layout_mode = 3
+[node name="PilotList" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,8 +12,9 @@ grow_vertical = 2
 script = ExtResource("1_pn80n")
 
 [node name="DynamicFrame" parent="." instance=ExtResource("1_7eh7m")]
-layout_mode = 0
-offset_right = 910.0
+layout_mode = 2
+bg_color = Color(0.105882, 0.12549, 0.180392, 0.827451)
+line_color = Color(0.176471, 0.207843, 0.329412, 0.694118)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="DynamicFrame"]
 layout_mode = 2

@@ -12,13 +12,15 @@ texture_margin_right = 32.0
 texture_margin_bottom = 36.0
 
 [node name="DynamicFrame" type="MarginContainer"]
-offset_right = 400.0
-offset_bottom = 600.0
+offset_right = 292.0
+offset_bottom = 288.0
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 script = ExtResource("1_tvncg")
+bg_color = Color(0.0823529, 0.172549, 0.329412, 1)
+line_color = Color(0.101961, 0.203922, 0.384314, 1)
 
 [node name="BackgroundContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -28,7 +30,6 @@ theme_override_constants/margin_right = -22
 theme_override_constants/margin_bottom = -24
 
 [node name="Background" parent="BackgroundContainer" instance=ExtResource("2_ljfwe")]
-self_modulate = Color(0.0823529, 0.172549, 0.329412, 1)
 layout_mode = 2
 expand_mode = 0
 

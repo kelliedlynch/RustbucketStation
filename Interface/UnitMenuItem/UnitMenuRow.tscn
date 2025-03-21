@@ -1,0 +1,173 @@
+[gd_scene load_steps=16 format=3 uid="uid://c82oohrayy22y"]
+
+[ext_resource type="Script" uid="uid://7frsxvq8dw7f" path="res://Interface/UnitMenuItem/UnitMenuRow.gd" id="1_7vfkv"]
+[ext_resource type="StyleBox" uid="uid://mmblmgoor80e" path="res://Interface/UnitMenuItem/MenuItemRowStraightEnds.tres" id="1_8rjce"]
+[ext_resource type="PackedScene" uid="uid://cj1i70p5sp2jy" path="res://Interface/UnitMenuItem/NeedsBar.tscn" id="2_xgenu"]
+[ext_resource type="Texture2D" uid="uid://dqiq6xuia0g32" path="res://Graphics/Icons/sparkles.png" id="3_7vfkv"]
+[ext_resource type="StyleBox" uid="uid://beftae1rdoriu" path="res://Interface/MenuCell.tres" id="3_d8px7"]
+[ext_resource type="Texture2D" uid="uid://c6eqc0l1jlv4u" path="res://Graphics/Icons/ray_gun.png" id="4_7vfkv"]
+[ext_resource type="PackedScene" uid="uid://df6rhbbtuffn4" path="res://Interface/MenuCellSplit.tscn" id="4_pfg2n"]
+[ext_resource type="Texture2D" uid="uid://yas5ipmtr16h" path="res://Graphics/Icons/spaceship.png" id="5_ebi1f"]
+[ext_resource type="Texture2D" uid="uid://bpbc512k156ps" path="res://Graphics/circle_border.png" id="6_xxu2b"]
+[ext_resource type="Texture2D" uid="uid://cd07t7lifoi8s" path="res://Graphics/Icons/microchip.png" id="7_ijom4"]
+[ext_resource type="Texture2D" uid="uid://dheong16pv8d0" path="res://Graphics/ring_background.png" id="7_w8tk3"]
+[ext_resource type="Texture2D" uid="uid://cuh1ow4e6cqjr" path="res://Graphics/Icons/invisible.png" id="8_4mwi0"]
+[ext_resource type="Texture2D" uid="uid://cj1kbklwty13p" path="res://Graphics/Portraits/portrait06.png" id="8_xxu2b"]
+[ext_resource type="PackedScene" uid="uid://bsgung4h2sac" path="res://Interface/MenuCell.tscn" id="10_ocf41"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ocf41"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[node name="UnitMenuRow" type="MarginContainer"]
+script = ExtResource("1_7vfkv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="NameAndTitle" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+alignment = 2
+
+[node name="TitlePanel" type="PanelContainer" parent="MarginContainer/HBoxContainer/NameAndTitle"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("1_8rjce")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/NameAndTitle/TitlePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 44
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 1
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/HBoxContainer/NameAndTitle/TitlePanel/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Text Text Text"
+
+[node name="NamePanel" type="PanelContainer" parent="MarginContainer/HBoxContainer/NameAndTitle"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = ExtResource("3_d8px7")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/NameAndTitle/NamePanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 46
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer/NameAndTitle/NamePanel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "CharName"
+
+[node name="Charm" parent="MarginContainer/HBoxContainer" instance=ExtResource("4_pfg2n")]
+layout_mode = 2
+size_flags_vertical = 8
+icon = ExtResource("3_7vfkv")
+left_color = Color(0.479834, 0.479834, 0.479834, 1)
+right_color = Color(0.741385, 0.741385, 0.741385, 1)
+
+[node name="Combat" parent="MarginContainer/HBoxContainer" instance=ExtResource("4_pfg2n")]
+layout_mode = 2
+size_flags_vertical = 8
+icon = ExtResource("4_7vfkv")
+left_color = Color(0.479834, 0.479834, 0.479834, 1)
+right_color = Color(0.741385, 0.741385, 0.741385, 1)
+
+[node name="Pilot" parent="MarginContainer/HBoxContainer" instance=ExtResource("4_pfg2n")]
+layout_mode = 2
+size_flags_vertical = 8
+icon = ExtResource("5_ebi1f")
+left_color = Color(0.479834, 0.479834, 0.479834, 1)
+right_color = Color(0.741385, 0.741385, 0.741385, 1)
+
+[node name="Stealth" parent="MarginContainer/HBoxContainer" instance=ExtResource("4_pfg2n")]
+layout_mode = 2
+size_flags_vertical = 8
+icon = ExtResource("8_4mwi0")
+left_color = Color(0.479834, 0.479834, 0.479834, 1)
+right_color = Color(0.741385, 0.741385, 0.741385, 1)
+
+[node name="Tech" parent="MarginContainer/HBoxContainer" instance=ExtResource("4_pfg2n")]
+layout_mode = 2
+size_flags_vertical = 8
+icon = ExtResource("7_ijom4")
+left_color = Color(0.479834, 0.479834, 0.479834, 1)
+right_color = Color(0.741385, 0.741385, 0.741385, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 16
+
+[node name="StatusLabel" parent="MarginContainer/HBoxContainer/MarginContainer" instance=ExtResource("10_ocf41")]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ocf41")
+
+[node name="NeedsBars" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/NeedsBars"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+alignment = 2
+
+[node name="AdventureBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
+layout_mode = 2
+value = 99
+
+[node name="FameBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
+layout_mode = 2
+value = 34
+
+[node name="RomanceBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
+layout_mode = 2
+value = 16
+
+[node name="ViceBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
+layout_mode = 2
+value = 70
+
+[node name="PortraitBorder" type="TextureRect" parent="."]
+self_modulate = Color(0.58, 0.30479, 0.1566, 1)
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("6_xxu2b")
+expand_mode = 3
+
+[node name="PortraitBackground" type="TextureRect" parent="PortraitBorder"]
+self_modulate = Color(0.673112, 0.887253, 0.905198, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_w8tk3")
+expand_mode = 1
+
+[node name="PortraitTexture" type="TextureRect" parent="PortraitBorder/PortraitBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_xxu2b")
+expand_mode = 3

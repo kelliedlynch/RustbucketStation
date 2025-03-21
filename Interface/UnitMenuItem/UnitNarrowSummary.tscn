@@ -1,14 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3l26hpj3rqxn"]
+[gd_scene load_steps=14 format=3 uid="uid://b3l26hpj3rqxn"]
 
-[ext_resource type="Script" uid="uid://7frsxvq8dw7f" path="res://UnitMenuItem/UnitMenuRow.gd" id="1_ta5x3"]
-[ext_resource type="StyleBox" uid="uid://mmblmgoor80e" path="res://UnitMenuItem/MenuItemRowStraightEnds.tres" id="2_owlop"]
+[ext_resource type="Script" uid="uid://7frsxvq8dw7f" path="res://Interface/UnitMenuItem/UnitMenuRow.gd" id="1_ta5x3"]
+[ext_resource type="StyleBox" uid="uid://mmblmgoor80e" path="res://Interface/UnitMenuItem/MenuItemRowStraightEnds.tres" id="2_owlop"]
 [ext_resource type="Texture2D" uid="uid://dqiq6xuia0g32" path="res://Graphics/Icons/sparkles.png" id="3_8udw6"]
+[ext_resource type="StyleBox" uid="uid://beftae1rdoriu" path="res://Interface/MenuCell.tres" id="3_ps8r5"]
+[ext_resource type="PackedScene" uid="uid://df6rhbbtuffn4" path="res://Interface/MenuCellSplit.tscn" id="4_fq2hi"]
 [ext_resource type="Texture2D" uid="uid://c6eqc0l1jlv4u" path="res://Graphics/Icons/ray_gun.png" id="4_wvcau"]
 [ext_resource type="Texture2D" uid="uid://yas5ipmtr16h" path="res://Graphics/Icons/spaceship.png" id="5_ifkrl"]
-[ext_resource type="Texture2D" uid="uid://c4uojx7a3qcm4" path="res://Graphics/Icons/hooded_figure.png" id="6_nhtms"]
 [ext_resource type="Texture2D" uid="uid://cd07t7lifoi8s" path="res://Graphics/Icons/microchip.png" id="7_mkm0r"]
-[ext_resource type="PackedScene" uid="uid://cj1i70p5sp2jy" path="res://UnitMenuItem/NeedsBar.tscn" id="8_qtv01"]
+[ext_resource type="PackedScene" uid="uid://cj1i70p5sp2jy" path="res://Interface/UnitMenuItem/NeedsBar.tscn" id="8_qtv01"]
 [ext_resource type="Texture2D" uid="uid://bpbc512k156ps" path="res://Graphics/circle_border.png" id="9_ny7d8"]
+[ext_resource type="Texture2D" uid="uid://cuh1ow4e6cqjr" path="res://Graphics/Icons/invisible.png" id="9_pf8ds"]
 [ext_resource type="Texture2D" uid="uid://dheong16pv8d0" path="res://Graphics/ring_background.png" id="10_pgjc5"]
 [ext_resource type="Texture2D" uid="uid://cj1kbklwty13p" path="res://Graphics/Portraits/portrait06.png" id="11_gmp50"]
 
@@ -52,6 +54,7 @@ layout_mode = 2
 [node name="NamePanel" type="PanelContainer" parent="MarginContainer/HBoxContainer/NameAndTitle/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_styles/panel = ExtResource("3_ps8r5")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/NameAndTitle/HBoxContainer/NamePanel"]
 layout_mode = 2
@@ -98,115 +101,30 @@ theme_override_constants/margin_left = 32
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Charm" type="PanelContainer" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
-clip_children = 2
-custom_minimum_size = Vector2(40, 0)
+[node name="Charm" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_fq2hi")]
 layout_mode = 2
 size_flags_vertical = 8
+icon = ExtResource("3_8udw6")
 
-[node name="Heart" type="Sprite2D" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Charm"]
-modulate = Color(0.8, 0.08, 0.608, 1)
-self_modulate = Color(1, 1, 1, 0.631373)
-position = Vector2(8, 15)
-scale = Vector2(0.048, 0.048)
-texture = ExtResource("3_8udw6")
-
-[node name="CharmLabel" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Charm"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 16
-text = "15"
-horizontal_alignment = 2
-
-[node name="Combat" type="PanelContainer" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
-clip_children = 2
-custom_minimum_size = Vector2(40, 0)
+[node name="Combat" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_fq2hi")]
 layout_mode = 2
 size_flags_vertical = 8
+icon = ExtResource("4_wvcau")
 
-[node name="Heart2" type="Sprite2D" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Combat"]
-modulate = Color(0.301961, 0.443137, 0.788235, 1)
-self_modulate = Color(1, 1, 1, 0.631373)
-position = Vector2(8, 19)
-scale = Vector2(0.048, 0.048)
-texture = ExtResource("4_wvcau")
-
-[node name="CombatLabel" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Combat"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 16
-text = "4"
-horizontal_alignment = 2
-
-[node name="Pilot" type="PanelContainer" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
-clip_children = 2
-custom_minimum_size = Vector2(40, 0)
+[node name="Pilot" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_fq2hi")]
 layout_mode = 2
 size_flags_vertical = 8
+icon = ExtResource("5_ifkrl")
 
-[node name="Heart3" type="Sprite2D" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Pilot"]
-modulate = Color(0.835294, 0.396078, 0.168627, 1)
-self_modulate = Color(1, 1, 1, 0.631373)
-position = Vector2(6, 15)
-scale = Vector2(0.048, 0.048)
-texture = ExtResource("5_ifkrl")
-
-[node name="PilotLabel" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Pilot"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 16
-text = "36"
-horizontal_alignment = 2
-
-[node name="Stealth" type="PanelContainer" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
-clip_children = 2
-custom_minimum_size = Vector2(40, 0)
+[node name="Stealth" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_fq2hi")]
 layout_mode = 2
 size_flags_vertical = 8
+icon = ExtResource("9_pf8ds")
 
-[node name="Heart4" type="Sprite2D" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Stealth"]
-modulate = Color(0.399927, 0.198582, 0.59472, 1)
-self_modulate = Color(1, 1, 1, 0.631373)
-position = Vector2(5, 15)
-scale = Vector2(0.048, 0.048)
-texture = ExtResource("6_nhtms")
-
-[node name="StealthLabel" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Stealth"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 16
-text = "78"
-horizontal_alignment = 2
-
-[node name="Tech" type="PanelContainer" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
-clip_children = 2
-custom_minimum_size = Vector2(40, 0)
+[node name="Tech" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_fq2hi")]
 layout_mode = 2
 size_flags_vertical = 8
-
-[node name="Heart5" type="Sprite2D" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Tech"]
-modulate = Color(0.372549, 0.721569, 0.239216, 1)
-self_modulate = Color(1, 1, 1, 0.631373)
-position = Vector2(5, 16)
-scale = Vector2(0.048, 0.048)
-texture = ExtResource("7_mkm0r")
-
-[node name="TechLabel" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/Tech"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 16
-text = "20"
-horizontal_alignment = 2
+icon = ExtResource("7_mkm0r")
 
 [node name="Status" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
 visible = false

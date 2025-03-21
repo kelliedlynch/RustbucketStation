@@ -112,11 +112,11 @@ func build_rewards():
 	rewards_container.columns = FactionManager.AllFactions.size()
 	var vals = []
 	for faction in FactionManager.AllFactions:
-		var header_cell: MenuCell = load("uid://df6rhbbtuffn4").instantiate()
+		var header_cell: MenuCell = load("uid://bsgung4h2sac").instantiate()
 		header_cell.cell_type = MenuCell.CellType.Header
 		header_cell.text = faction.abbreviation
 		rewards_container.add_child(header_cell)
-		var val_cell: MenuCell = load("uid://df6rhbbtuffn4").instantiate()
+		var val_cell: MenuCell = load("uid://bsgung4h2sac").instantiate()
 		if rewards.has(faction):
 			val_cell.text = str(rewards[faction])
 			val_cell.label_settings = load("uid://c07v3i5nocusr") if rewards[faction] > 0 else load("uid://cvjxrvq34s8pc")
@@ -131,6 +131,6 @@ func build_eligible_pilots_list():
 	for child in eligible_pilots_container.get_children():
 		child.queue_free()
 	for pilot in pilots:
-		var item = load("res://UnitMenuItem/UnitNarrowSummary.tscn").instantiate()
-		item.character = pilot
+		var item = load("uid://b3l26hpj3rqxn").instantiate()
+		item.pilot = pilot
 		eligible_pilots_container.add_child(item)

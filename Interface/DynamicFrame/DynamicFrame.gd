@@ -1,14 +1,20 @@
 @tool
 extends Control
 
-@export var frame_size: Vector2 = Vector2(500, 300):
+@export var bg_color: Color = Color.from_string("152c54", Color.MIDNIGHT_BLUE):
 	set(value):
-		frame_size = value
+		bg_color = value
 		if not is_inside_tree(): await ready
-		base_frame.size = value
+		background.bg_color = value
+@export var line_color: Color = Color.from_string("1a3462", Color.DARK_BLUE):
+	set(value):
+		line_color = value
+		if not is_inside_tree(): await ready
+		background.line_color = value
 
 @onready var base_frame: Container = find_child("BaseFrame")
 @onready var frame_container: Container = find_child("FrameContainer")
+@onready var background: Control = find_child("Background")
 #@onready var overlay: TextureRect = find_child("GrungeOverlay")
 
 func _ready() -> void:

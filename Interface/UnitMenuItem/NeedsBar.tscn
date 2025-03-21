@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj1i70p5sp2jy"]
 
-[ext_resource type="StyleBox" uid="uid://bx2oc45mt73y2" path="res://UnitMenuItem/VertProgressBarBackground.tres" id="1_ef7n0"]
-[ext_resource type="Script" uid="uid://bqrftqhljxsft" path="res://UnitMenuItem/NeedsBar.gd" id="1_kos10"]
+[ext_resource type="StyleBox" uid="uid://bx2oc45mt73y2" path="res://Interface/UnitMenuItem/VertProgressBarBackground.tres" id="1_ef7n0"]
+[ext_resource type="Script" uid="uid://bqrftqhljxsft" path="res://Interface/UnitMenuItem/NeedsBar.gd" id="1_kos10"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5i6bd"]
 bg_color = Color(1, 1, 1, 1)
