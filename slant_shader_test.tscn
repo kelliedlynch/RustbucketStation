@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb7erokktgm0p"]
+
+[ext_resource type="Script" uid="uid://bau0p46cbwmm4" path="res://slant_shader_test.gd" id="1_3r0ys"]
+[ext_resource type="Shader" uid="uid://b61pn31f6mdvv" path="res://test_slant.gdshader" id="1_f7hnv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f7hnv"]
+shader = ExtResource("1_f7hnv")
+shader_parameter/container_size = Vector2(0, 0)
+shader_parameter/rect_size = Vector2(0, 0)
+shader_parameter/slant = 0.0
+shader_parameter/rotation = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3r0ys"]
+shader = ExtResource("1_f7hnv")
+shader_parameter/container_size = Vector2(0, 0)
+shader_parameter/rect_size = Vector2(0, 0)
+shader_parameter/slant = 0.0
+shader_parameter/rotation = 0.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3r0ys")
+
+[node name="BarBackground" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_f7hnv")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 101.0
+
+[node name="BarFill" type="ColorRect" parent="BarBackground"]
+material = SubResource("ShaderMaterial_3r0ys")
+layout_mode = 0
+offset_top = 41.0
+offset_right = 40.0
+offset_bottom = 101.0
+color = Color(1, 0.43, 0.43, 1)

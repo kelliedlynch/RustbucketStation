@@ -2,6 +2,7 @@
 
 [resource]
 bg_color = Color(0.23, 0.23, 0.23, 1)
+skew = Vector2(0.8, 0)
 border_width_left = 3
 border_width_top = 3
 border_color = Color(0.0853774, 0.160972, 0.148295, 1)

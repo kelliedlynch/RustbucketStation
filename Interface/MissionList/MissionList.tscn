@@ -13,8 +13,6 @@ script = ExtResource("1_pjw8p")
 
 [node name="DynamicFrame" parent="." instance=ExtResource("2_io1ut")]
 layout_mode = 2
-bg_color = Color(0.0823529, 0.172549, 0.329412, 1)
-line_color = Color(0.101961, 0.203922, 0.384314, 1)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="DynamicFrame"]
 layout_mode = 2

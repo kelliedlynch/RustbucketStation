@@ -118,29 +118,27 @@ label_settings = SubResource("LabelSettings_ocf41")
 
 [node name="NeedsBars" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 16
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/NeedsBars"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 16
-alignment = 2
+theme_override_constants/separation = 14
 
 [node name="AdventureBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
 layout_mode = 2
-value = 99
+value = 97.0
 
 [node name="FameBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
 layout_mode = 2
-value = 34
+value = 34.0
 
 [node name="RomanceBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
 layout_mode = 2
-value = 16
+value = 16.0
 
 [node name="ViceBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
 layout_mode = 2
-value = 70
+value = 70.0
 
 [node name="PortraitBorder" type="TextureRect" parent="."]
 self_modulate = Color(0.58, 0.30479, 0.1566, 1)
@@ -151,7 +149,7 @@ texture = ExtResource("6_xxu2b")
 expand_mode = 3
 
 [node name="PortraitBackground" type="TextureRect" parent="PortraitBorder"]
-self_modulate = Color(0.673112, 0.887253, 0.905198, 1)
+self_modulate = Color(0.914311, 0.829894, 0.773236, 1)
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15

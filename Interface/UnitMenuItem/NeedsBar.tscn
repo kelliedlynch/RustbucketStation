@@ -1,38 +1,76 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj1i70p5sp2jy"]
+[gd_scene load_steps=7 format=3 uid="uid://cj1i70p5sp2jy"]
 
-[ext_resource type="StyleBox" uid="uid://bx2oc45mt73y2" path="res://Interface/UnitMenuItem/VertProgressBarBackground.tres" id="1_ef7n0"]
+[ext_resource type="Shader" uid="uid://b61pn31f6mdvv" path="res://test_slant.gdshader" id="1_2tprc"]
 [ext_resource type="Script" uid="uid://bqrftqhljxsft" path="res://Interface/UnitMenuItem/NeedsBar.gd" id="1_kos10"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5i6bd"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8l0co"]
+shader = ExtResource("1_2tprc")
+shader_parameter/container_size = Vector2(0, 0)
+shader_parameter/rect_size = Vector2(34, 80)
+shader_parameter/slant = 0.0
+shader_parameter/rotation = 0.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ef7n0"]
-bg_color = Color(1, 0, 0, 1)
-border_width_left = 5
-border_width_top = 1
-border_width_right = 4
-border_color = Color(0.545098, 0, 0, 1)
-border_blend = true
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tprc"]
+bg_color = Color(0.23, 0.23, 0.23, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
 
-[node name="PanelContainer" type="PanelContainer"]
-theme_override_styles/panel = SubResource("StyleBoxFlat_5i6bd")
-script = ExtResource("1_kos10")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46wdm"]
+bg_color = Color(0.6, 0.162, 0.162, 1)
+corner_radius_top_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-theme_override_constants/margin_left = 1
-theme_override_constants/margin_top = 1
-theme_override_constants/margin_right = 1
-theme_override_constants/margin_bottom = 1
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ew4n6"]
+shader = ExtResource("1_2tprc")
+shader_parameter/container_size = Vector2(0, 0)
+shader_parameter/rect_size = Vector2(0, 0)
+shader_parameter/slant = 0.0
+shader_parameter/rotation = 0.0
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer"]
-layout_mode = 2
+[node name="ProgressBar" type="ProgressBar"]
+material = SubResource("ShaderMaterial_8l0co")
+custom_minimum_size = Vector2(32, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -40.0
+offset_right = 17.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 12
-theme_override_styles/background = ExtResource("1_ef7n0")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ef7n0")
-value = 20.0
+theme_override_styles/background = SubResource("StyleBoxFlat_2tprc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_46wdm")
+value = 50.0
 fill_mode = 3
+show_percentage = false
+script = ExtResource("1_kos10")
+
+[node name="PercentLabel" type="Label" parent="."]
+material = SubResource("ShaderMaterial_ew4n6")
+custom_minimum_size = Vector2(52, 26)
+layout_mode = 1
+offset_right = 52.0
+offset_bottom = 26.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 16
+text = "100% Test test test"
+horizontal_alignment = 1
+vertical_alignment = 1
