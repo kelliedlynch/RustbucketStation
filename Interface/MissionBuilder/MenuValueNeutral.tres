@@ -1,4 +1,8 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://24fpsfd1ml7f"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://24fpsfd1ml7f"]
+
+[ext_resource type="FontFile" uid="uid://i45ilepjtv0t" path="res://Graphics/Fonts/Monkirta Pursuit NC.ttf" id="1_inrq7"]
 
 [resource]
-font_color = Color(0, 0, 0, 1)
+font = ExtResource("1_inrq7")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)

@@ -43,3 +43,10 @@ theme/custom="uid://d34yxm6ykhv1s"
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[shader_globals]
+
+menu_cell_skew={
+"type": "float",
+"value": 0.3
+}

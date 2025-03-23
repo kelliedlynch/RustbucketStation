@@ -1,12 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://c82oohrayy22y"]
+[gd_scene load_steps=26 format=3 uid="uid://c82oohrayy22y"]
 
 [ext_resource type="Script" uid="uid://7frsxvq8dw7f" path="res://Interface/UnitMenuItem/UnitMenuRow.gd" id="1_7vfkv"]
 [ext_resource type="StyleBox" uid="uid://mmblmgoor80e" path="res://Interface/UnitMenuItem/MenuItemRowStraightEnds.tres" id="1_8rjce"]
+[ext_resource type="Material" uid="uid://12kinur3rs0m" path="res://Interface/SkewedMenuCell.tres" id="2_4mwi0"]
 [ext_resource type="PackedScene" uid="uid://cj1i70p5sp2jy" path="res://Interface/UnitMenuItem/NeedsBar.tscn" id="2_xgenu"]
 [ext_resource type="Texture2D" uid="uid://dqiq6xuia0g32" path="res://Graphics/Icons/sparkles.png" id="3_7vfkv"]
 [ext_resource type="StyleBox" uid="uid://beftae1rdoriu" path="res://Interface/MenuCell.tres" id="3_d8px7"]
 [ext_resource type="Texture2D" uid="uid://c6eqc0l1jlv4u" path="res://Graphics/Icons/ray_gun.png" id="4_7vfkv"]
 [ext_resource type="PackedScene" uid="uid://df6rhbbtuffn4" path="res://Interface/MenuCellSplit.tscn" id="4_pfg2n"]
+[ext_resource type="LabelSettings" uid="uid://tn8xc61bw1vy" path="res://Interface/MissionBuilder/MenuValueNeutralBigger.tres" id="5_bh7ph"]
 [ext_resource type="Texture2D" uid="uid://yas5ipmtr16h" path="res://Graphics/Icons/spaceship.png" id="5_ebi1f"]
 [ext_resource type="Texture2D" uid="uid://bpbc512k156ps" path="res://Graphics/circle_border.png" id="6_xxu2b"]
 [ext_resource type="Texture2D" uid="uid://cd07t7lifoi8s" path="res://Graphics/Icons/microchip.png" id="7_ijom4"]
@@ -14,10 +16,67 @@
 [ext_resource type="Texture2D" uid="uid://cuh1ow4e6cqjr" path="res://Graphics/Icons/invisible.png" id="8_4mwi0"]
 [ext_resource type="Texture2D" uid="uid://cj1kbklwty13p" path="res://Graphics/Portraits/portrait06.png" id="8_xxu2b"]
 [ext_resource type="PackedScene" uid="uid://bsgung4h2sac" path="res://Interface/MenuCell.tscn" id="10_ocf41"]
+[ext_resource type="Texture2D" uid="uid://bakjni2vwql36" path="res://Graphics/Icons/eclipse.png" id="13_yq8wr"]
+[ext_resource type="Texture2D" uid="uid://dlfbplrv1p3pw" path="res://Graphics/Icons/stars_stack.png" id="14_bh7ph"]
+[ext_resource type="Texture2D" uid="uid://by1ngejnultnc" path="res://Graphics/Icons/heart.png" id="15_d7bra"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ocf41"]
-font_size = 20
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="Shader" id="Shader_bh7ph"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+global uniform float menu_cell_skew;
+uniform vec2 rect_size;
+
+void vertex() {
+	float y_pos = rect_size.y - VERTEX.y;
+	VERTEX += vec2(y_pos * tan(menu_cell_skew), 0.0);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d7bra"]
+resource_local_to_scene = true
+shader = SubResource("Shader_bh7ph")
+shader_parameter/rect_size = Vector2(65, 25)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnl1o"]
+bg_color = Color(0.196078, 0.803922, 0.196078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_bottom_left = 6
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mn4bl"]
+bg_color = Color(1, 0.54902, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_bottom_left = 6
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1nb0"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_bottom_left = 6
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vmu67"]
+bg_color = Color(1, 1, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_bottom_left = 6
+anti_aliasing = false
 
 [node name="UnitMenuRow" type="MarginContainer"]
 script = ExtResource("1_7vfkv")
@@ -25,8 +84,6 @@ script = ExtResource("1_7vfkv")
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_bottom = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -37,6 +94,7 @@ layout_mode = 2
 alignment = 2
 
 [node name="TitlePanel" type="PanelContainer" parent="MarginContainer/HBoxContainer/NameAndTitle"]
+material = ExtResource("2_4mwi0")
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/panel = ExtResource("1_8rjce")
@@ -54,6 +112,7 @@ theme_override_font_sizes/font_size = 10
 text = "Text Text Text"
 
 [node name="NamePanel" type="PanelContainer" parent="MarginContainer/HBoxContainer/NameAndTitle"]
+material = ExtResource("2_4mwi0")
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_styles/panel = ExtResource("3_d8px7")
@@ -67,16 +126,15 @@ theme_override_constants/margin_bottom = 2
 
 [node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer/NameAndTitle/NamePanel/MarginContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 18
 text = "CharName"
+label_settings = ExtResource("5_bh7ph")
 
 [node name="Charm" parent="MarginContainer/HBoxContainer" instance=ExtResource("4_pfg2n")]
 layout_mode = 2
 size_flags_vertical = 8
 icon = ExtResource("3_7vfkv")
-left_color = Color(0.479834, 0.479834, 0.479834, 1)
-right_color = Color(0.741385, 0.741385, 0.741385, 1)
+left_color = Color(0.462745, 0.564706, 0.611765, 1)
+right_color = Color(0.166526, 0.22509, 0.366563, 1)
 
 [node name="Combat" parent="MarginContainer/HBoxContainer" instance=ExtResource("4_pfg2n")]
 layout_mode = 2
@@ -106,43 +164,48 @@ icon = ExtResource("7_ijom4")
 left_color = Color(0.479834, 0.479834, 0.479834, 1)
 right_color = Color(0.741385, 0.741385, 0.741385, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+[node name="StatusLabel" parent="MarginContainer/HBoxContainer" instance=ExtResource("10_ocf41")]
+material = SubResource("ShaderMaterial_d7bra")
+custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 16
-
-[node name="StatusLabel" parent="MarginContainer/HBoxContainer/MarginContainer" instance=ExtResource("10_ocf41")]
-layout_mode = 2
-label_settings = SubResource("LabelSettings_ocf41")
+size_flags_vertical = 8
+label_settings = ExtResource("5_bh7ph")
 
 [node name="NeedsBars" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 6
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/NeedsBars"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 14
+theme_override_constants/separation = 16
 
 [node name="AdventureBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
 layout_mode = 2
-value = 97.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_tnl1o")
+value = 98.0
+icon = ExtResource("13_yq8wr")
 
 [node name="FameBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
 layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_mn4bl")
 value = 34.0
+icon = ExtResource("14_bh7ph")
 
 [node name="RomanceBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
 layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_o1nb0")
 value = 16.0
+icon = ExtResource("15_d7bra")
 
 [node name="ViceBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
 layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_vmu67")
 value = 70.0
 
 [node name="PortraitBorder" type="TextureRect" parent="."]
 self_modulate = Color(0.58, 0.30479, 0.1566, 1)
-custom_minimum_size = Vector2(70, 70)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("6_xxu2b")

@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://12kinur3rs0m"]
+
+[ext_resource type="Shader" uid="uid://b6wwg0ugdt032" path="res://SkewMenuCell.gdshader" id="1_3opxc"]
+
+[resource]
+shader = ExtResource("1_3opxc")
+shader_parameter/rect_size = Vector2(54, 25)

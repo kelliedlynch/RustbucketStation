@@ -12,7 +12,8 @@ class_name MenuCell
 		notify_property_list_changed()
 
 @onready var value_label: Label = find_child("ValueLabel")
-@onready var main_panel: PanelContainer = find_child("PanelContainer")
+@onready var main_panel: PanelContainer = find_child("MainPanel")
+@onready var margin_container: MarginContainer = find_child("MarginContainer")
 
 @export var cell_type: CellType = CellType.Value:
 	set(value):
@@ -34,6 +35,21 @@ class_name MenuCell
 		text = value
 		if not is_inside_tree(): await ready
 		value_label.text = value
+
+func _ready() -> void:
+	await ready
+	await get_tree().process_frame
+	#item_rect_changed.connect(_update_shader)
+	_update_shader()
+
+func _update_shader():
+	if not is_inside_tree(): await ready
+	var skew = ProjectSettings.get("shader_globals/menu_cell_skew").value
+	var x_offset = size.y * tan(skew) - main_panel.get_theme_stylebox("panel").border_width_left
+	
+	margin_container.add_theme_constant_override("margin_left", x_offset)
+	#margin_container.add_theme_constant_override("margin_right", x_offset/2)
+	main_panel.material.set_shader_parameter("rect_size", size)
 
 enum CellType {
 	Header,
