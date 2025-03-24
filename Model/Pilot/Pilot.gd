@@ -30,6 +30,23 @@ var stats: Dictionary[String, int] = {
 	tech = 0
 }
 
+var skill_ranks: Dictionary[String, SkillRank] = {
+	pilot = SkillRank.E,
+	combat = SkillRank.E,
+	stealth = SkillRank.E,
+	charm = SkillRank.E,
+	tech = SkillRank.E
+}
+
+var skill_exp: Dictionary[String, int] = {
+	pilot = 0,
+	combat = 0,
+	stealth = 0,
+	charm = 0,
+	tech = 0
+}
+
+
 var rank: int
 
 #var job: String
@@ -38,14 +55,19 @@ var portrait: Texture2D
 
 var status: PilotStatus
 
-func _init(at_rank: int):
-	rank = at_rank
+func _init(_at_rank: int):
+	#rank = at_rank
 	name = NameGenerator.new_name()
 	for need in needs:
 		needs[need] = randi_range(1, 100)
-	for stat in stats:
-		stats[stat] =  clamp(at_rank * randi_range(1, 12), 1, 99)
-	#job = "Pilot" if randi() & 1 else "Space Wizard"
+	for skill in skill_ranks:
+		var rank = SkillRank.random()
+		skill_ranks[skill] = rank
+		if rank == SkillRank.max:
+			skill_exp[skill] = INF
+		else:
+			skill_exp[skill] = randi_range(0, rank.rank_up_exp)
+
 	portrait = get_random_portrait()
 	
 func add_need(need: String, val: int):

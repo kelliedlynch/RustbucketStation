@@ -8,7 +8,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8l0co"]
 shader = ExtResource("1_46wdm")
-shader_parameter/rect_size = Vector2(22, 64)
+shader_parameter/rect_size = Vector2(22, 100)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tprc"]
 bg_color = Color(0.23, 0.23, 0.23, 1)
@@ -32,7 +32,7 @@ anti_aliasing = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ew4n6"]
 shader = ExtResource("1_2tprc")
-shader_parameter/container_size = Vector2(22, 64)
+shader_parameter/container_size = Vector2(22, 100)
 shader_parameter/rect_size = Vector2(31, 32)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b2vls"]

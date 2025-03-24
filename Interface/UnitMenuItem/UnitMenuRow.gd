@@ -16,16 +16,36 @@ extends MarginContainer
 @onready var vice_bar: NeedsBar = find_child("ViceBar")
 @onready var status_label: Control = find_child("StatusLabel")
 
+@onready var charm_rank: SkillRankDisplay = find_child("CharmRank")
+@onready var combat_rank: SkillRankDisplay = find_child("CombatRank")
+@onready var pilot_rank: SkillRankDisplay = find_child("PilotRank")
+@onready var stealth_rank: SkillRankDisplay = find_child("StealthRank")
+@onready var tech_rank: SkillRankDisplay = find_child("TechRank")
+
 var pilot: Pilot
 
 func _process(_delta: float) -> void:
 	if pilot:
 		name_label.text = pilot.name
-		charm_label.text = str(pilot.stats.charm)
-		combat_label.text = str(pilot.stats.combat)
-		pilot_label.text = str(pilot.stats.pilot)
-		stealth_label.text = str(pilot.stats.stealth)
-		tech_label.text = str(pilot.stats.tech)
+		charm_label.text = str(pilot.skill_ranks.charm)
+		charm_rank.rank = pilot.skill_ranks.charm
+		charm_rank.exp = pilot.skill_exp.charm
+		combat_label.text = str(pilot.skill_ranks.combat)
+		
+		combat_rank.rank = pilot.skill_ranks.combat
+		combat_rank.exp = pilot.skill_exp.combat
+		pilot_label.text = str(pilot.skill_ranks.pilot)
+		
+		pilot_rank.rank = pilot.skill_ranks.pilot
+		pilot_rank.exp = pilot.skill_exp.pilot
+		stealth_label.text = str(pilot.skill_ranks.stealth)
+		
+		stealth_rank.rank = pilot.skill_ranks.stealth
+		stealth_rank.exp = pilot.skill_exp.stealth
+		tech_label.text = str(pilot.skill_ranks.tech)
+		
+		tech_rank.rank = pilot.skill_ranks.tech
+		tech_rank.exp = pilot.skill_exp.tech
 		portrait_rect.texture = pilot.portrait
 		adventure_bar.value = pilot.needs.adventure
 		fame_bar.value = pilot.needs.fame

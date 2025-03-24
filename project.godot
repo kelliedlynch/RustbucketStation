@@ -35,6 +35,10 @@ window/size/initial_position_type=2
 
 movie_writer/movie_file="/Users/kellie/Projects/Godot/RustbucketStation/screen_record.avi"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/copilot/plugin.cfg")
+
 [gui]
 
 theme/custom="uid://d34yxm6ykhv1s"

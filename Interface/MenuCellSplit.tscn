@@ -44,7 +44,7 @@ theme_override_styles/panel = ExtResource("4_4qnkr")
 [node name="RightMarginContainer" type="MarginContainer" parent="HBoxContainer/RightPanel"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 7
+theme_override_constants/margin_left = 6
 theme_override_constants/margin_right = 3
 
 [node name="ValueLabel" type="Label" parent="HBoxContainer/RightPanel/RightMarginContainer"]
