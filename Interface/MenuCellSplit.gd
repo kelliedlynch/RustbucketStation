@@ -1,11 +1,13 @@
 @tool
 extends MenuCell
+class_name MenuCellSplit
 
-@export var icon: Texture2D:
-	set(value):
-		icon = value
-		if not is_inside_tree(): await ready
-		icon_rect.texture = value
+#@export var icon: Texture2D:
+	#set(value):
+		#icon = value
+		#if not is_inside_tree(): await ready
+		#icon_rect.texture = value
+		#notify_property_list_changed()
 		
 #@export var left_color: Color:
 	#set(value):
@@ -21,7 +23,7 @@ extends MenuCell
 		#var style: StyleBoxFlat = right_panel.get_theme_stylebox("panel")
 		#style.bg_color = value
 
-@onready var icon_rect: TextureRect = find_child("Icon")
+#@onready var icon_rect: TextureRect = find_child("Icon")
 @onready var left_panel: PanelContainer = find_child("LeftPanel")
 @onready var right_panel: PanelContainer = find_child("RightPanel")
 @onready var left_margin_container: MarginContainer = find_child("LeftMarginContainer")

@@ -11,6 +11,7 @@
 offset_right = 82.0
 offset_bottom = 25.0
 script = ExtResource("1_nmqcp")
+show_icon = null
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

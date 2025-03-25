@@ -4,4 +4,4 @@
 
 [resource]
 shader = ExtResource("1_3opxc")
-shader_parameter/rect_size = Vector2(52, 21)
+shader_parameter/rect_size = Vector2(52, 25)
