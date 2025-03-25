@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsgung4h2sac"]
+[gd_scene load_steps=6 format=3 uid="uid://bsgung4h2sac"]
 
 [ext_resource type="Script" uid="uid://bx61nfgeqi3bq" path="res://Interface/MenuCell.gd" id="1_3af3n"]
 [ext_resource type="Texture2D" uid="uid://bakjni2vwql36" path="res://Graphics/Icons/eclipse.png" id="2_1q1jm"]
 [ext_resource type="StyleBox" uid="uid://beftae1rdoriu" path="res://Interface/MenuCell.tres" id="2_3af3n"]
-[ext_resource type="LabelSettings" uid="uid://24fpsfd1ml7f" path="res://Interface/MissionBuilder/MenuValueNeutral.tres" id="4_1q1jm"]
 [ext_resource type="Shader" uid="uid://dnsqax147f5hl" path="res://Interface/UnitMenuItem/OutlineTexture.gdshader" id="4_4qnkr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5eeca"]
@@ -59,5 +58,4 @@ expand_mode = 3
 [node name="ValueLabel" type="Label" parent="TexturePanel/CellContents/HBoxContainer"]
 layout_mode = 2
 text = "Value"
-label_settings = ExtResource("4_1q1jm")
 horizontal_alignment = 1

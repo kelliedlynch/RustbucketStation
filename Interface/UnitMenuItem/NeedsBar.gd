@@ -1,5 +1,5 @@
 @tool
-extends ProgressBar
+extends Control
 class_name NeedsBar
 
 #@onready var progress_bar: ProgressBar = find_child("ProgressBar")
@@ -17,19 +17,28 @@ class_name NeedsBar
 
 @onready var percent_label: Label = find_child("PercentLabel")
 @onready var icon_rect: TextureRect = find_child("IconTexture")
+@onready var progress_bar: ProgressBar = find_child("ProgressBar")
+@onready var canvas_group: Node2D = find_child("CanvasGroup")
 
 func _ready() -> void:
-	value_changed.connect(_update_bar)
+	progress_bar.value_changed.connect(_update_bar)
 	item_rect_changed.connect(_update_bar)
 	#if not Engine.is_editor_hint():
 	await get_tree().process_frame
+	
 	#await ready
-	_update_bar(value)
+	_update_bar(progress_bar.value)
 	
 func _resize_label():
 	percent_label.custom_minimum_size.x = size.y
 	
-func _update_bar(val: float = value):
+func _update_bar(val: float = progress_bar.value):
+	progress_bar.size = Vector2(size.x, size.y / cos(canvas_group.skew))
+	canvas_group.skew = ProjectSettings.get_setting("shader_globals/menu_cell_skew").value
+	
+	#progress_bar.size = size
+	
+	canvas_group.position = Vector2(size.y * tan(canvas_group.skew), 0)
 	#material.set_shader_parameter("slant", slant)
 	material.set_shader_parameter("rect_size", size)
 	#percent_label.material.set_shader_parameter("rotation", slant)
