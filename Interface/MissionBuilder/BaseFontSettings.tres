@@ -1,0 +1,16 @@
+[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://rk0dkr3g5cy7"]
+
+[ext_resource type="FontFile" uid="uid://i45ilepjtv0t" path="res://Graphics/Fonts/Monkirta Pursuit NC.ttf" id="1_udr8m"]
+[ext_resource type="Script" uid="uid://u208ptmdm81x" path="res://Interface/BaseFontSettings.gd" id="2_xhn01"]
+
+[resource]
+font = ExtResource("1_udr8m")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+script = ExtResource("2_xhn01")
+variant = 0
+normal = Color(1, 1, 1, 1)
+positive = Color(0.196078, 0.803922, 0.196078, 1)
+negative = Color(1, 0, 0, 1)

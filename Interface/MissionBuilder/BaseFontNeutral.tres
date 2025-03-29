@@ -1,0 +1,17 @@
+[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://24fpsfd1ml7f"]
+
+[ext_resource type="FontFile" uid="uid://i45ilepjtv0t" path="res://Graphics/Fonts/Monkirta Pursuit NC.ttf" id="1_inrq7"]
+
+[sub_resource type="GDScript" id="GDScript_inrq7"]
+script/source = "extends LabelSettings
+
+@export_flags(\"Neutral:1\", \"Positive:2\", \"Negative:4\") var variant: int = 1"
+
+[resource]
+font = ExtResource("1_inrq7")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+script = SubResource("GDScript_inrq7")
+variant = 1

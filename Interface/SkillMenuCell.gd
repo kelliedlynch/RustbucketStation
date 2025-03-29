@@ -12,7 +12,6 @@ class_name SkillMenuCell
 		icon = value
 		if not is_inside_tree(): await ready
 		icon_rect.texture = value
-		icon_outline.texture = value
 		notify_property_list_changed()
 
 

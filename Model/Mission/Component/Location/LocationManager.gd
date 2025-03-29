@@ -1,7 +1,7 @@
 extends Node
 
-var Mercury: Location = load("uid://byf84bccg8uj7")
-var Venus: Location = load("uid://tq3rpvg4rgxq")
-var Earth: Location = load("uid://b3tqjcrfpnll4")
+var Mercury: Location = load("uid://b31u6a6gxdbdd")
+var Venus: Location = load("uid://3m425sqxfudc")
+var Earth: Location = load("uid://brif1ftcqp0pn")
 
-var AllLocations = [Mercury, Venus, Earth]
+var AllLocations: Array[Location] = [Mercury, Venus, Earth]

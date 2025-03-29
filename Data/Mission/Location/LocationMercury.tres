@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Location" load_steps=3 format=3 uid="uid://byf84bccg8uj7"]
+[gd_resource type="Resource" script_class="Location" load_steps=3 format=3 uid="uid://b31u6a6gxdbdd"]
 
 [ext_resource type="Resource" uid="uid://gdy230o1m8va" path="res://Data/Faction/SpaceWizards.tres" id="1_6inff"]
-[ext_resource type="Script" uid="uid://bxmc8lkvsrltk" path="res://Model/Mission/Component/Location/Location.gd" id="1_o5a1f"]
+[ext_resource type="Script" uid="uid://d4ljagtclmenv" path="res://Model/Location/Location.gd" id="1_o5a1f"]
 
 [resource]
 script = ExtResource("1_o5a1f")
 name = "Mercury"
+distance = 0
 controller = ExtResource("1_6inff")
-metadata/_custom_type_script = "uid://bxmc8lkvsrltk"
+metadata/_custom_type_script = "uid://d4ljagtclmenv"

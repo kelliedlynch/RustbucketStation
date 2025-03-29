@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://d34yxm6ykhv1s"]
+
+[ext_resource type="FontFile" uid="uid://i45ilepjtv0t" path="res://Graphics/Fonts/Monkirta Pursuit NC.ttf" id="1_ng702"]
+[ext_resource type="FontFile" uid="uid://drjbkh02hsv6t" path="res://Graphics/Fonts/Quantico-Bold.ttf" id="1_ocfdk"]
+
+[resource]
+default_font = ExtResource("1_ng702")
+default_font_size = 16
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 4
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 2
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_ocfdk")
+LabelNegative/base_type = &"Label"
+LabelNegative/colors/font_color = Color(1, 0.270588, 0.160784, 1)
+LabelNegative/colors/font_outline_color = Color(0.45098, 0, 0, 1)
+LabelNormal/base_type = &"Label"
+LabelPositive/base_type = &"Label"
+LabelPositive/colors/font_color = Color(0.45098, 0.819608, 0.45098, 1)
+LabelPositive/colors/font_outline_color = Color(0, 0.290196, 0, 1)

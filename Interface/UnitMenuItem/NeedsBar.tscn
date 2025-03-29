@@ -14,7 +14,7 @@ corner_radius_top_right = 6
 corner_radius_bottom_left = 6
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ew4n6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46wdm"]
 bg_color = Color(1, 1, 0, 1)
 border_width_left = 2
 border_width_top = 2
@@ -27,28 +27,29 @@ anti_aliasing = false
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4aw5d"]
 shader = ExtResource("6_b2vls")
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 20.0
-shader_parameter/samples = 28.0
+shader_parameter/line_thickness = 30.256
+shader_parameter/samples = 50.0
 
 [node name="MarginContainer" type="MarginContainer"]
 offset_right = 26.0
-offset_bottom = 99.0
+offset_bottom = 83.0
 script = ExtResource("1_kos10")
 
 [node name="CanvasGroup" type="Node2D" parent="."]
-position = Vector2(30.6243, 0)
-skew = 0.3
+position = Vector2(23.4183, 0)
+skew = 0.275
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasGroup"]
 custom_minimum_size = Vector2(22, 0)
-offset_right = 26.0
-offset_bottom = 103.628
+offset_right = 22.0
+offset_bottom = 86.0
+size_flags_horizontal = 0
 size_flags_vertical = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 12
 theme_override_styles/background = SubResource("StyleBoxFlat_2tprc")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ew4n6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_46wdm")
 value = 50.0
 fill_mode = 3
 show_percentage = false
@@ -58,12 +59,12 @@ custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_bottom = -4
+theme_override_constants/margin_left = -4
+theme_override_constants/margin_bottom = -8
 
 [node name="IconTexture" type="TextureRect" parent="MarginContainer"]
 material = SubResource("ShaderMaterial_4aw5d")
-custom_minimum_size = Vector2(22, 22)
+custom_minimum_size = Vector2(26, 26)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

@@ -30,6 +30,8 @@ func get_next_rank() -> SkillRank:
 			return D
 		_:
 			return null
+			
+
 
 # Create static vars for ranks A through E
 static var A: SkillRank = SkillRank.new(4, "A", INF)

@@ -1,10 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://c82oohrayy22y"]
+[gd_scene load_steps=17 format=3 uid="uid://c82oohrayy22y"]
 
 [ext_resource type="Script" uid="uid://7frsxvq8dw7f" path="res://Interface/UnitMenuItem/UnitMenuRow.gd" id="1_7vfkv"]
 [ext_resource type="StyleBox" uid="uid://mmblmgoor80e" path="res://Interface/UnitMenuItem/MenuItemRowStraightEnds.tres" id="1_8rjce"]
 [ext_resource type="PackedScene" uid="uid://cj1i70p5sp2jy" path="res://Interface/UnitMenuItem/NeedsBar.tscn" id="2_xgenu"]
-[ext_resource type="StyleBox" uid="uid://beftae1rdoriu" path="res://Interface/MenuCell.tres" id="3_d8px7"]
-[ext_resource type="LabelSettings" uid="uid://tn8xc61bw1vy" path="res://Interface/MissionBuilder/MenuValueNeutralBigger.tres" id="5_bh7ph"]
 [ext_resource type="PackedScene" uid="uid://x8xxowdckmno" path="res://Interface/SkillMenuCell.tscn" id="6_d7bra"]
 [ext_resource type="Texture2D" uid="uid://bpbc512k156ps" path="res://Graphics/circle_border.png" id="6_xxu2b"]
 [ext_resource type="Texture2D" uid="uid://dqiq6xuia0g32" path="res://Graphics/Icons/sparkles.png" id="7_bh7ph"]
@@ -18,46 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://bakjni2vwql36" path="res://Graphics/Icons/eclipse.png" id="13_yq8wr"]
 [ext_resource type="Texture2D" uid="uid://dlfbplrv1p3pw" path="res://Graphics/Icons/stars_stack.png" id="14_bh7ph"]
 [ext_resource type="Texture2D" uid="uid://by1ngejnultnc" path="res://Graphics/Icons/heart.png" id="15_d7bra"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yq8wr"]
-bg_color = Color(0.196078, 0.803922, 0.196078, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_bottom_left = 6
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bh7ph"]
-bg_color = Color(1, 0.54902, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_bottom_left = 6
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7bra"]
-bg_color = Color(1, 0, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_bottom_left = 6
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnl1o"]
-bg_color = Color(1, 1, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.8, 0.8, 0.8, 0)
-corner_radius_bottom_left = 6
-anti_aliasing = false
 
 [node name="UnitMenuRow" type="MarginContainer"]
 script = ExtResource("1_7vfkv")
@@ -91,64 +49,58 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Text Text Text"
 
-[node name="NamePanel" type="PanelContainer" parent="MarginContainer/HBoxContainer/NameAndTitle"]
+[node name="NameLabel" parent="MarginContainer/HBoxContainer/NameAndTitle" instance=ExtResource("10_ocf41")]
 layout_mode = 2
-size_flags_vertical = 8
-theme_override_styles/panel = ExtResource("3_d8px7")
+show_icon = false
+font_size = 24
+text_align = 0
+margin_left = 30
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/NameAndTitle/NamePanel"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 46
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 2
+theme_override_constants/margin_bottom = 5
 
-[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer/NameAndTitle/NamePanel/MarginContainer"]
-layout_mode = 2
-text = "CharName"
-label_settings = ExtResource("5_bh7ph")
-
-[node name="SkillRanks" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="SkillRanks" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="CharmRank" parent="MarginContainer/HBoxContainer/SkillRanks" instance=ExtResource("6_d7bra")]
+[node name="CharmRank" parent="MarginContainer/HBoxContainer/MarginContainer/SkillRanks" instance=ExtResource("6_d7bra")]
 layout_mode = 2
 size_flags_vertical = 8
 icon = ExtResource("7_bh7ph")
 
-[node name="CombatRank" parent="MarginContainer/HBoxContainer/SkillRanks" instance=ExtResource("6_d7bra")]
+[node name="CombatRank" parent="MarginContainer/HBoxContainer/MarginContainer/SkillRanks" instance=ExtResource("6_d7bra")]
 layout_mode = 2
 size_flags_vertical = 8
 icon = ExtResource("8_d7bra")
 
-[node name="PilotRank" parent="MarginContainer/HBoxContainer/SkillRanks" instance=ExtResource("6_d7bra")]
+[node name="PilotRank" parent="MarginContainer/HBoxContainer/MarginContainer/SkillRanks" instance=ExtResource("6_d7bra")]
 layout_mode = 2
 size_flags_vertical = 8
 icon = ExtResource("9_tnl1o")
 
-[node name="StealthRank" parent="MarginContainer/HBoxContainer/SkillRanks" instance=ExtResource("6_d7bra")]
+[node name="StealthRank" parent="MarginContainer/HBoxContainer/MarginContainer/SkillRanks" instance=ExtResource("6_d7bra")]
 layout_mode = 2
 size_flags_vertical = 8
 icon = ExtResource("10_mn4bl")
 
-[node name="TechRank" parent="MarginContainer/HBoxContainer/SkillRanks" instance=ExtResource("6_d7bra")]
+[node name="TechRank" parent="MarginContainer/HBoxContainer/MarginContainer/SkillRanks" instance=ExtResource("6_d7bra")]
 layout_mode = 2
 size_flags_vertical = 8
 icon = ExtResource("11_o1nb0")
 
 [node name="StatusLabel" parent="MarginContainer/HBoxContainer" instance=ExtResource("10_ocf41")]
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/margin_left = 8
-label_settings = ExtResource("5_bh7ph")
-show_icon = false
-icon = null
 text = "Status"
+icon = null
+font_size = 24
 
 [node name="NeedsBars" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 12
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/NeedsBars"]
 layout_mode = 2
@@ -157,26 +109,18 @@ theme_override_constants/separation = 16
 
 [node name="AdventureBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
 layout_mode = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_yq8wr")
-value = 98.0
 icon = ExtResource("13_yq8wr")
 
 [node name="FameBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
 layout_mode = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_bh7ph")
-value = 34.0
 icon = ExtResource("14_bh7ph")
 
 [node name="RomanceBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
 layout_mode = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_d7bra")
-value = 16.0
 icon = ExtResource("15_d7bra")
 
 [node name="ViceBar" parent="MarginContainer/HBoxContainer/NeedsBars/HBoxContainer" instance=ExtResource("2_xgenu")]
 layout_mode = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_tnl1o")
-value = 70.0
 
 [node name="PortraitBorder" type="TextureRect" parent="."]
 self_modulate = Color(0.58, 0.30479, 0.1566, 1)

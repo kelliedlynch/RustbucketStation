@@ -2,17 +2,12 @@
 extends MarginContainer
 class_name MenuCell
 
-#@export var header_stylebox: StyleBox = preload("uid://du31smfdmdgsb")
-#@export var value_stylebox: StyleBox = preload("uid://beftae1rdoriu")
-@export var label_settings: LabelSettings = preload("uid://24fpsfd1ml7f"):
+@export var text: String = "":
 	set(value):
-		label_settings = value
+		text = value
 		if not is_inside_tree(): await ready
-		value_label.label_settings = value
-		notify_property_list_changed()
-
-@onready var value_label: Label = find_child("ValueLabel")
-
+		value_label.text = value
+		
 @export var show_icon: bool = false:
 	set(value):
 		show_icon = value
@@ -25,48 +20,66 @@ class_name MenuCell
 		icon = value
 		if not is_inside_tree(): await ready
 		icon_rect.texture = value
-		icon_outline.texture = value
 		notify_property_list_changed()
+		
+@export_group("Text Format")
+		
+@export var text_variation: BaseTheme.LabelVariation = BaseTheme.LabelVariation.LabelNormal:
+	set(value):
+		text_variation = value
+		if not is_inside_tree(): await ready
+		value_label.theme_type_variation = BaseTheme.LabelVariation.keys()[value]
 
+@export var font_size: BaseTheme.FontSize = BaseTheme.FontSize.MenuNormal:
+	set(value):
+		font_size = value
+		if not is_inside_tree(): await ready
+		value_label.add_theme_font_size_override("font_size", value)
+		
+@export_enum("Left:%s" % HORIZONTAL_ALIGNMENT_LEFT, "Center:%s" % HORIZONTAL_ALIGNMENT_CENTER, "Right:%s" % HORIZONTAL_ALIGNMENT_RIGHT)\
+			 var text_align: int = HORIZONTAL_ALIGNMENT_CENTER:
+	set(value):
+		text_align = value
+		if not is_inside_tree(): await ready
+		value_label.horizontal_alignment = value
+		
+@export_subgroup("Text Margins")
+@export var margin_left: int:
+	set(value):
+		margin_left = value
+		if not is_inside_tree(): await ready
+		text_margins.add_theme_constant_override("margin_left", value)
+@export var margin_right: int:
+	set(value):
+		margin_right = value
+		if not is_inside_tree(): await ready
+		text_margins.add_theme_constant_override("margin_right", value)
+@export var margin_top: int:
+	set(value):
+		margin_top = value
+		if not is_inside_tree(): await ready
+		text_margins.add_theme_constant_override("margin_bottom", value)
+@export var margin_bottom: int:
+	set(value):
+		margin_left = value
+		if not is_inside_tree(): await ready
+		text_margins.add_theme_constant_override("margin_left", value)
+
+@onready var value_label: Label = find_child("ValueLabel")
 @onready var texture_panel: PanelContainer = find_child("TexturePanel")
 @onready var icon_rect: TextureRect = find_child("IconTexture")
-@onready var icon_outline: TextureRect = find_child("IconOutline")
 @onready var icon_container: Container = find_child("IconContainer")
 @onready var cell_contents: MarginContainer = find_child("CellContents")
+@onready var text_margins: MarginContainer = find_child("TextMargins")
 
-@export var cell_type: CellType = CellType.Value:
-	set(value):
-		cell_type = value
-		#if not is_inside_tree(): await ready
-		#match value:
-			#CellType.Header:
-				#if main_panel:
-					#main_panel.add_theme_stylebox_override("panel", header_stylebox)
-				#label_settings = load("uid://cct1160ti5774")
-			#_:
-				#if main_panel:
-					#main_panel.add_theme_stylebox_override("panel", value_stylebox)
-				#label_settings = load("uid://24fpsfd1ml7f")
-		#notify_property_list_changed()
 
-@export var text: String = "":
-	set(value):
-		text = value
-		if not is_inside_tree(): await ready
-		value_label.text = value
-
+		
 func _ready() -> void:
-	await ready
-	#await get_tree().process_frame
-	#item_rect_changed.connect(_update_shader)
-	#_update_shader()
-	#main_panel.item_rect_changed.connect(_update_shader)
+	item_rect_changed.connect(_resize_for_skew)
+	pass
 
-func _process(delta: float) -> void:
-	if not texture_panel: 
-		print("bad frame")
-		return
-	_resize_for_skew()
+#func _process(delta: float) -> void:
+	#_resize_for_skew()
 		
 func _resize_for_skew() -> void:
 	var style: StyleBoxFlat = texture_panel.get_theme_stylebox("panel")
@@ -80,15 +93,6 @@ func _resize_for_skew() -> void:
 		x_offset_left += border_left
 	cell_contents.add_theme_constant_override("margin_left", round(x_offset_left))
 	cell_contents.add_theme_constant_override("margin_right", round(x_offset_right))
-
-#func _update_shader():
-	#if not is_inside_tree(): await ready
-	#var skew = ProjectSettings.get("shader_globals/menu_cell_skew").value
-	#var x_offset = main_panel.size.y * tan(skew) - main_panel.get_theme_stylebox("panel").border_width_left
-	#
-	#margin_container.add_theme_constant_override("margin_left", x_offset)
-	##margin_container.add_theme_constant_override("margin_right", x_offset/2)
-	#main_panel.material.set_shader_parameter("rect_size", size)
 
 enum CellType {
 	Header,

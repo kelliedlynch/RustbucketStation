@@ -3,16 +3,14 @@ class_name Mission
 
 var origin: FactionComponent
 var target: FactionComponent
-var location: Location
+var location: LocationComponent
 var objective: Objective
 
 var crew_size: int = 1
 
 var requirements: MissionRequirements:
 	get:
-		if not requirements:
-			requirements = MissionRequirementsManager.calculate_mission_requirements(self)
-		return requirements
+		return MissionRequirementsManager.calculate_mission_requirements(self)
 
 var money_reward: int:
 	get:
@@ -50,8 +48,8 @@ func get_eligible_pilots() -> Array[Pilot]:
 
 func is_pilot_eligible(pilot: Pilot) -> bool:
 	var is_eligible = true
-	for stat in pilot.stats:
-		if pilot.stats[stat] < requirements.min_stats[stat] or pilot.stats[stat] > requirements.max_stats[stat]:
+	for skill in pilot.skill_ranks:
+		if pilot.skill_ranks[skill].value < requirements.min_skills[skill]:
 			is_eligible = false
 			break
 	return is_eligible

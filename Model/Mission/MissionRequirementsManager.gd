@@ -9,7 +9,7 @@ static func calculate_mission_requirements(mission: Mission) -> MissionRequireme
 static func _get_base_requirements(mission: Mission) -> MissionRequirements:
 	var base: MissionRequirements = MissionRequirements.new()
 	for component: MissionComponent in mission.components:
-		base.clamp_to(component.get_base_requirements(mission))
+		base.merge_max(component.get_base_requirements(mission))
 	return base
 
 static func _apply_requirements_modifiers(mission: Mission, base_reqs: MissionRequirements) -> MissionRequirements:

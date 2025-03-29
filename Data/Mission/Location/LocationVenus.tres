@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Location" load_steps=3 format=3 uid="uid://tq3rpvg4rgxq"]
+[gd_resource type="Resource" script_class="Location" load_steps=3 format=3 uid="uid://3m425sqxfudc"]
 
-[ext_resource type="Script" uid="uid://bxmc8lkvsrltk" path="res://Model/Mission/Component/Location/Location.gd" id="1_m34x6"]
 [ext_resource type="Resource" uid="uid://c6goux6qls0wk" path="res://Data/Faction/SexyAliens.tres" id="1_y5y0f"]
+[ext_resource type="Script" uid="uid://d4ljagtclmenv" path="res://Model/Location/Location.gd" id="2_887tv"]
 
 [resource]
-script = ExtResource("1_m34x6")
+script = ExtResource("2_887tv")
 name = "Venus"
+distance = 0
 controller = ExtResource("1_y5y0f")
-metadata/_custom_type_script = "uid://bxmc8lkvsrltk"
+metadata/_custom_type_script = "uid://d4ljagtclmenv"

@@ -3,7 +3,7 @@ extends MarginContainer
 #class_name UnitMenuRow
 
 @onready var title_label: Label = find_child("TitleLabel")
-@onready var name_label: Label = find_child("NameLabel")
+@onready var name_label: MenuCell = find_child("NameLabel")
 @onready var charm_label: Control = find_child("Charm")
 @onready var combat_label: Control = find_child("Combat")
 @onready var pilot_label: Control = find_child("Pilot")
@@ -14,7 +14,7 @@ extends MarginContainer
 @onready var fame_bar: NeedsBar = find_child("FameBar")
 @onready var romance_bar: NeedsBar = find_child("RomanceBar")
 @onready var vice_bar: NeedsBar = find_child("ViceBar")
-@onready var status_label: Control = find_child("StatusLabel")
+@onready var status_label: MenuCell = find_child("StatusLabel")
 
 @onready var charm_rank: SkillMenuCell = find_child("CharmRank")
 @onready var combat_rank: SkillMenuCell = find_child("CombatRank")

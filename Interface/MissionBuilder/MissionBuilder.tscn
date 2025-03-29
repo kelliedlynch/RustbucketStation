@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bedcsa1s1mptw" path="res://Interface/MissionBuilder/MissionBuilder.gd" id="1_s0yvv"]
 [ext_resource type="Theme" uid="uid://bw7068hor8c7d" path="res://Interface/MissionBuilder/OptionButtonTheme.tres" id="3_v4v2n"]
-[ext_resource type="PackedScene" uid="uid://b3l26hpj3rqxn" path="res://Interface/UnitMenuItem/UnitNarrowSummary.tscn" id="4_j7l0k"]
-[ext_resource type="PackedScene" uid="uid://df6rhbbtuffn4" path="res://Interface/MenuCellSplit.tscn" id="5_rxprf"]
+[ext_resource type="PackedScene" uid="uid://bsgung4h2sac" path="res://Interface/MenuCell.tscn" id="4_we0fx"]
+[ext_resource type="Texture2D" uid="uid://bxw84233s7oeq" path="res://Graphics/Icons/spacebucks_symbol.png" id="5_o01fm"]
 [ext_resource type="PackedScene" uid="uid://cdwtdj8vxcbl5" path="res://Interface/DynamicFrame/DynamicFrame.tscn" id="7_moilo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4v2n"]
@@ -61,8 +61,24 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
 
 [node name="IncomingRequestsFrame" parent="HBoxContainer/VBoxContainer" instance=ExtResource("7_moilo")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/IncomingRequestsFrame"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/IncomingRequestsFrame/VBoxContainer"]
+layout_mode = 2
+text = "Incoming Requests"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer/IncomingRequestsFrame/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="IncomingRequestItems" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/IncomingRequestsFrame/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 
 [node name="ComponentSelectorFrame" parent="HBoxContainer/VBoxContainer" instance=ExtResource("7_moilo")]
@@ -148,8 +164,9 @@ theme_override_constants/separation = 30
 layout_mode = 2
 alignment = 1
 
-[node name="SpaceBucksLabel" parent="HBoxContainer/VBoxContainer/RewardsSummaryFrame/VBoxContainer/HBoxContainer" instance=ExtResource("5_rxprf")]
+[node name="SpaceBucksLabel" parent="HBoxContainer/VBoxContainer/RewardsSummaryFrame/VBoxContainer/HBoxContainer" instance=ExtResource("4_we0fx")]
 layout_mode = 2
+icon = ExtResource("5_o01fm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/RewardsSummaryFrame/VBoxContainer"]
 layout_mode = 2
@@ -167,6 +184,7 @@ size_flags_horizontal = 4
 [node name="EligiblePilotsFrame" parent="HBoxContainer" instance=ExtResource("7_moilo")]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
 
 [node name="EligiblePilots" type="MarginContainer" parent="HBoxContainer/EligiblePilotsFrame"]
 layout_mode = 2
@@ -188,6 +206,3 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="UnitMenuRow2" parent="HBoxContainer/EligiblePilotsFrame/EligiblePilots/VBoxContainer/ScrollContainer/EligiblePilotsContainer" instance=ExtResource("4_j7l0k")]
-layout_mode = 2

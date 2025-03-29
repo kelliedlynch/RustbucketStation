@@ -1,7 +1,7 @@
 extends Resource
 class_name MissionComponent
 ## Base class for any component of a mission that affects outcome or rewards
-## Faction, Location, Objective
+## Faction, LocationComponent, Objective
 
 func get_base_money_reward(_mission: Mission) -> int:
 	return 0

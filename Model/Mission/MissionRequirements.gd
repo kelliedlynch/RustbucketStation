@@ -1,31 +1,23 @@
 extends Resource
 class_name MissionRequirements
 
-var _stat_value_floor: int = 0
-var _stat_value_ceiling: int = 100
-
-@export var min_stats: Dictionary[String, int] = {
-	charm = _stat_value_floor,
-	combat = _stat_value_floor,
-	pilot = _stat_value_floor,
-	stealth = _stat_value_floor,
-	tech = _stat_value_floor
+@export var min_skills: Dictionary[String, float] = {
+	charm = SkillRank.min.value,
+	combat = SkillRank.min.value,
+	pilot = SkillRank.min.value,
+	stealth = SkillRank.min.value,
+	tech = SkillRank.min.value
 }
 
-@export var max_stats: Dictionary[String, int] = {
-	charm = _stat_value_ceiling,
-	combat = _stat_value_ceiling,
-	pilot = _stat_value_ceiling,
-	stealth = _stat_value_ceiling,
-	tech = _stat_value_ceiling
-}
-	
 func add(reqs: MissionRequirements):
-	for prop in reqs.min_stats:
-		min_stats[prop] = clamp(min_stats[prop] + reqs.min_stats[prop], _stat_value_floor, _stat_value_ceiling)
+	for prop in reqs.min_skills:
+		min_skills[prop] += reqs.min_skills[prop]
+		min_skills[prop] = clamp(max(reqs.min_skills[prop], min_skills[prop]), 0.0, float(SkillRank.max.value))
+
+func merge_max(reqs: MissionRequirements):
+	for prop in reqs.min_skills:
+		min_skills[prop] = max(min_skills[prop], reqs.min_skills[prop])
 
 func clamp_to(reqs: MissionRequirements):
-	for prop in reqs.min_stats:
-		min_stats[prop] = max(min_stats[prop], reqs.min_stats[prop])
-	for prop in reqs.max_stats:
-		max_stats[prop] = min(max_stats[prop], reqs.max_stats[prop])
+	for prop in reqs.min_skills:
+		min_skills[prop] = clamp(min_skills[prop], 0.0, reqs.min_skills[prop])

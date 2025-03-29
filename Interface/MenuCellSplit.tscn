@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c6eqc0l1jlv4u" path="res://Graphics/Icons/ray_gun.png" id="2_3af3n"]
 [ext_resource type="Material" uid="uid://12kinur3rs0m" path="res://Interface/SkewedMenuCell.tres" id="2_nmqcp"]
 [ext_resource type="StyleBox" uid="uid://k68coyhncs3i" path="res://Interface/MenuCellSplitRight.tres" id="4_4qnkr"]
-[ext_resource type="LabelSettings" uid="uid://24fpsfd1ml7f" path="res://Interface/MissionBuilder/MenuValueNeutral.tres" id="6_w5axx"]
+[ext_resource type="LabelSettings" uid="uid://24fpsfd1ml7f" path="res://Interface/MissionBuilder/BaseFontNeutral.tres" id="6_w5axx"]
 
 [node name="MenuCellSplit" type="MarginContainer"]
 offset_right = 82.0

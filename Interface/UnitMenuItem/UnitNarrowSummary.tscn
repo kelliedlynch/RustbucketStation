@@ -4,9 +4,9 @@
 [ext_resource type="StyleBox" uid="uid://mmblmgoor80e" path="res://Interface/UnitMenuItem/MenuItemRowStraightEnds.tres" id="2_owlop"]
 [ext_resource type="Texture2D" uid="uid://dqiq6xuia0g32" path="res://Graphics/Icons/sparkles.png" id="3_8udw6"]
 [ext_resource type="StyleBox" uid="uid://beftae1rdoriu" path="res://Interface/MenuCell.tres" id="3_ps8r5"]
-[ext_resource type="PackedScene" uid="uid://df6rhbbtuffn4" path="res://Interface/MenuCellSplit.tscn" id="4_fq2hi"]
 [ext_resource type="Texture2D" uid="uid://c6eqc0l1jlv4u" path="res://Graphics/Icons/ray_gun.png" id="4_wvcau"]
 [ext_resource type="Texture2D" uid="uid://yas5ipmtr16h" path="res://Graphics/Icons/spaceship.png" id="5_ifkrl"]
+[ext_resource type="PackedScene" uid="uid://x8xxowdckmno" path="res://Interface/SkillMenuCell.tscn" id="5_ps8r5"]
 [ext_resource type="Texture2D" uid="uid://cd07t7lifoi8s" path="res://Graphics/Icons/microchip.png" id="7_mkm0r"]
 [ext_resource type="PackedScene" uid="uid://cj1i70p5sp2jy" path="res://Interface/UnitMenuItem/NeedsBar.tscn" id="8_qtv01"]
 [ext_resource type="Texture2D" uid="uid://bpbc512k156ps" path="res://Graphics/circle_border.png" id="9_ny7d8"]
@@ -101,29 +101,24 @@ theme_override_constants/margin_left = 32
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Charm" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_fq2hi")]
+[node name="CharmRank" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_ps8r5")]
 layout_mode = 2
-size_flags_vertical = 8
 icon = ExtResource("3_8udw6")
 
-[node name="Combat" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_fq2hi")]
+[node name="CombatRank" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_ps8r5")]
 layout_mode = 2
-size_flags_vertical = 8
 icon = ExtResource("4_wvcau")
 
-[node name="Pilot" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_fq2hi")]
+[node name="PilotRank" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_ps8r5")]
 layout_mode = 2
-size_flags_vertical = 8
 icon = ExtResource("5_ifkrl")
 
-[node name="Stealth" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_fq2hi")]
+[node name="StealthRank" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_ps8r5")]
 layout_mode = 2
-size_flags_vertical = 8
 icon = ExtResource("9_pf8ds")
 
-[node name="Tech" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_fq2hi")]
+[node name="TechRank" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_ps8r5")]
 layout_mode = 2
-size_flags_vertical = 8
 icon = ExtResource("7_mkm0r")
 
 [node name="Status" type="PanelContainer" parent="MarginContainer/HBoxContainer"]

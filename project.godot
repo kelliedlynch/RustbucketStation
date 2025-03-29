@@ -52,5 +52,5 @@ renderer/rendering_method.mobile="gl_compatibility"
 
 menu_cell_skew={
 "type": "float",
-"value": 0.3
+"value": 0.275
 }

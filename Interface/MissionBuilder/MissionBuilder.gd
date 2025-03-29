@@ -14,20 +14,20 @@ extends Control
 @onready var desc_text: RichTextLabel = find_child("DescText")
 
 @onready var rewards_container: Container = find_child("FactionRewards")
+@onready var reward_money: MenuCell = find_child("SpaceBucksLabel")
 
 @onready var eligible_pilots_container: Container = find_child("EligiblePilotsContainer")
 
 @onready var randomize_button: Button = find_child("RandomizeButton")
 @onready var post_button: Button = find_child("PostMission")
 
+@onready var requests_container: Container = find_child("IncomingRequestItems")
+
 var mission: Mission
 
 func _ready() -> void:
+	build_request_list()
 	mission = Mission.new()
-	#clear_popup_options(faction_origin)
-	#clear_popup_options(faction_target)
-	#clear_popup_options(location)
-	#clear_popup_options(objective)
 	var faction_components = []
 	for i in FactionManager.AllFactions.size():
 		var component = FactionComponent.new()
@@ -35,7 +35,12 @@ func _ready() -> void:
 		faction_components.append(component)
 	populate_component_button(faction_origin, faction_components)
 	populate_component_button(faction_target, faction_components)
-	populate_component_button(location, LocationManager.AllLocations)
+	var location_components = []
+	for i in LocationManager.AllLocations.size():
+		var component = LocationComponent.new()
+		component.location = LocationManager.AllLocations[i]
+		location_components.append(component)
+	populate_component_button(location, location_components)
 	populate_component_button(objective, Objective.AllObjectives)
 
 	faction_origin.item_selected.connect(_on_component_selected.bind(faction_origin, "origin"))
@@ -45,6 +50,15 @@ func _ready() -> void:
 	randomize_button.pressed.connect(randomize_quest)
 	post_button.pressed.connect(_post_mission)
 	randomize_quest()
+	
+func build_request_list():
+	for req in MissionManager.incoming_requests:
+		var item = HBoxContainer.new()
+		for comp in req.components:
+			var label = Label.new()
+			label.text = comp.name if comp else "Any"
+			item.add_child(label)
+		requests_container.add_child(item)
 	
 func _post_mission():
 	MissionManager.post_mission(mission)
@@ -113,24 +127,31 @@ func build_rewards():
 	var vals = []
 	for faction in FactionManager.AllFactions:
 		var header_cell: MenuCell = load("uid://bsgung4h2sac").instantiate()
-		header_cell.cell_type = MenuCell.CellType.Header
+		header_cell.show_icon = false
 		header_cell.text = faction.abbreviation
 		rewards_container.add_child(header_cell)
 		var val_cell: MenuCell = load("uid://bsgung4h2sac").instantiate()
+		val_cell.show_icon = false
+		#val_cell.label_settings = load("uid://c07v3i5nocusr")
 		if rewards.has(faction):
 			val_cell.text = str(rewards[faction])
-			val_cell.label_settings = load("uid://c07v3i5nocusr") if rewards[faction] > 0 else load("uid://cvjxrvq34s8pc")
+			if rewards[faction] < 0:
+				val_cell.text_variation = BaseTheme.LabelVariation.LabelNegative
+			elif rewards[faction] > 0:
+				val_cell.text_variation = BaseTheme.LabelVariation.LabelPositive
+				#val_cell.label_settings = load("uid://cvjxrvq34s8pc")
 		else:
 			val_cell.text = ""
 		vals.append(val_cell)
 	for cell in vals:
 		rewards_container.add_child(cell)
+	reward_money.text = str(mission.money_reward)
 		
 func build_eligible_pilots_list():
 	var pilots = mission.get_eligible_pilots()
 	for child in eligible_pilots_container.get_children():
 		child.queue_free()
 	for pilot in pilots:
-		var item = load("uid://b3l26hpj3rqxn").instantiate()
+		var item = load("uid://c82oohrayy22y").instantiate()
 		item.pilot = pilot
 		eligible_pilots_container.add_child(item)

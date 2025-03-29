@@ -3,29 +3,25 @@
 [ext_resource type="Script" uid="uid://bx61nfgeqi3bq" path="res://Interface/MenuCell.gd" id="1_3af3n"]
 [ext_resource type="Texture2D" uid="uid://bakjni2vwql36" path="res://Graphics/Icons/eclipse.png" id="2_1q1jm"]
 [ext_resource type="StyleBox" uid="uid://beftae1rdoriu" path="res://Interface/MenuCell.tres" id="2_3af3n"]
-[ext_resource type="Shader" uid="uid://dnsqax147f5hl" path="res://Interface/UnitMenuItem/OutlineTexture.gdshader" id="4_4qnkr"]
+[ext_resource type="Shader" uid="uid://bq3sh76an6o4c" path="res://Interface/UnitMenuItem/AnotherOutline.gdshader" id="4_1q1jm"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5eeca"]
-shader = ExtResource("4_4qnkr")
-shader_parameter/outline_color = Color(0, 0, 0, 1)
-shader_parameter/outline_size = 0.047
-shader_parameter/alpha_threshold = 0.5
-shader_parameter/samples = 32.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4qnkr"]
+shader = ExtResource("4_1q1jm")
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 29.586
+shader_parameter/samples = 50.0
 
 [node name="MenuCell" type="MarginContainer"]
-offset_right = 59.0
+offset_right = 77.0
 offset_bottom = 21.0
-size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_3af3n")
-label_settings = null
+text = "Value"
 show_icon = true
 icon = ExtResource("2_1q1jm")
-text = "Value"
 
 [node name="TexturePanel" type="PanelContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 0
 theme_override_styles/panel = ExtResource("2_3af3n")
 
 [node name="CellContents" type="MarginContainer" parent="TexturePanel"]
@@ -35,6 +31,7 @@ theme_override_constants/margin_right = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TexturePanel/CellContents"]
 layout_mode = 2
+theme_override_constants/separation = 6
 alignment = 1
 
 [node name="IconContainer" type="MarginContainer" parent="TexturePanel/CellContents/HBoxContainer"]
@@ -42,20 +39,21 @@ layout_mode = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="IconOutline" type="TextureRect" parent="TexturePanel/CellContents/HBoxContainer/IconContainer"]
-material = SubResource("ShaderMaterial_5eeca")
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("2_1q1jm")
-expand_mode = 3
-
 [node name="IconTexture" type="TextureRect" parent="TexturePanel/CellContents/HBoxContainer/IconContainer"]
+material = SubResource("ShaderMaterial_4qnkr")
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_1q1jm")
 expand_mode = 3
 
-[node name="ValueLabel" type="Label" parent="TexturePanel/CellContents/HBoxContainer"]
+[node name="TextMargins" type="MarginContainer" parent="TexturePanel/CellContents/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 0
+
+[node name="ValueLabel" type="Label" parent="TexturePanel/CellContents/HBoxContainer/TextMargins"]
+layout_mode = 2
+theme_type_variation = &"LabelNormal"
+theme_override_font_sizes/font_size = 16
 text = "Value"
 horizontal_alignment = 1

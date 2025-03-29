@@ -1,11 +1,13 @@
 extends MissionComponent
-class_name Location
+class_name LocationComponent
 
-@export var name: String
-@export var controller: Faction
+@export var location: Location
+var name: String:
+	get:
+		return location.name
 
 func get_base_rep_reward(mission: Mission) -> Dictionary[Faction, int]:
 	var rep: Dictionary[Faction, int] = {}
-	if mission.target and mission.target.faction == controller:
+	if mission.target and mission.target.faction == location.controller:
 		rep[mission.target.faction] = -20
 	return rep

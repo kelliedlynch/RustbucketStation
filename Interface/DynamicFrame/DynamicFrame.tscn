@@ -30,8 +30,11 @@ theme_override_constants/margin_right = -22
 theme_override_constants/margin_bottom = -24
 
 [node name="Background" parent="BackgroundContainer" instance=ExtResource("2_ljfwe")]
+self_modulate = Color(0.0823529, 0.172549, 0.329412, 1)
 layout_mode = 2
 expand_mode = 0
+bg_color = Color(0.0823529, 0.172549, 0.329412, 1)
+line_color = Color(0.101961, 0.203922, 0.384314, 1)
 
 [node name="FrameContainer" type="MarginContainer" parent="."]
 layout_mode = 2

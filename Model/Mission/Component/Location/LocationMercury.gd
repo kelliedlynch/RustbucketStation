@@ -1,4 +1,4 @@
-extends Location
+extends LocationComponent
 
 func get_base_requirements(_mission: Mission) -> MissionRequirements:
 	var req = MissionRequirements.new()

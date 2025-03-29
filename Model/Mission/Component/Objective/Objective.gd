@@ -8,7 +8,7 @@ class_name Objective
 @export var objective_target_prepositions: PackedStringArray
 @export var objective_target_objects: PackedStringArray
 
-@export var requirements: MissionRequirements = MissionRequirements.new()
+#@export var requirements: MissionRequirements = MissionRequirements.new()
 
 static var Steal = load("uid://vm5n6tjev3yw")
 static var Deliver = load("uid://ce0ivbxrbl8et")
