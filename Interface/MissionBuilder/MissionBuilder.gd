@@ -1,11 +1,8 @@
 extends Control
 
-@onready var faction_origin: OptionButton = find_child("FactionOrigin")
-@onready var faction_target: OptionButton = find_child("FactionTarget")
-@onready var location: OptionButton = find_child("Location")
-@onready var objective: OptionButton = find_child("Objective")
 
-@onready var component_selector_container: MarginContainer = find_child("ComponentSelectorFrame")
+
+@onready var component_selector: Control = find_child("ComponentSelector")
 
 @onready var desc_faction: Label = find_child("DescFactionLabel")
 @onready var desc_target: Label = find_child("DescTargetLabel")
@@ -28,66 +25,44 @@ var mission: Mission
 func _ready() -> void:
 	build_request_list()
 	mission = Mission.new()
-	var faction_components = []
-	for i in FactionManager.AllFactions.size():
-		var component = FactionComponent.new()
-		component.faction = FactionManager.AllFactions[i]
-		faction_components.append(component)
-	populate_component_button(faction_origin, faction_components)
-	populate_component_button(faction_target, faction_components)
-	var location_components = []
-	for i in LocationManager.AllLocations.size():
-		var component = LocationComponent.new()
-		component.location = LocationManager.AllLocations[i]
-		location_components.append(component)
-	populate_component_button(location, location_components)
-	populate_component_button(objective, Objective.AllObjectives)
-
-	faction_origin.item_selected.connect(_on_component_selected.bind(faction_origin, "origin"))
-	faction_target.item_selected.connect(_on_component_selected.bind(faction_target, "target"))
-	location.item_selected.connect(_on_component_selected.bind(location, "location"))
-	objective.item_selected.connect(_on_component_selected.bind(objective, "objective"))
-	randomize_button.pressed.connect(randomize_quest)
+	component_selector.component_selected.connect(_on_component_selected)
+	component_selector.randomize_components()
 	post_button.pressed.connect(_post_mission)
-	randomize_quest()
+
 	
 func build_request_list():
 	for req in MissionManager.incoming_requests:
-		var item = HBoxContainer.new()
-		for comp in req.components:
-			var label = Label.new()
-			label.text = comp.name if comp else "Any"
-			item.add_child(label)
+		var item = load("res://Interface/MissionList/MissionRequestItem.tscn").instantiate()
+		item.request = req
 		requests_container.add_child(item)
+		item.request_selected.connect(_on_request_selected)
+		
+func _on_request_selected(req: MissionRequest):
+	component_selector.select_components_from_request(req)
 	
 func _post_mission():
 	MissionManager.post_mission(mission)
 	mission = Mission.new()
-	randomize_quest()
+	component_selector.randomize_components()
 	
 func _on_component_selected(index: int, button: OptionButton, prop: StringName):
-	#var meta = button.get_item_metadata(index)
+	var meta = button.get_item_metadata(index)
 	mission.set(prop, button.get_item_metadata(index))
 	await get_tree().process_frame
 	build_description()
 	build_rewards()
 	build_eligible_pilots_list()
 
-func clear_popup_options(button: OptionButton):
-	for i in range(button.item_count - 1, -1, -1):
-		button.remove_item(i)
-
-func configure_popup_options(button: OptionButton):
-	var popup = button.get_popup()
-	for i in button.item_count:
-		popup.set_item_as_radio_checkable(i, false)
+#func clear_popup_options(button: OptionButton):
+	#for i in range(button.item_count - 1, -1, -1):
+		#button.remove_item(i)
+#
+#func configure_popup_options(button: OptionButton):
+	#var popup = button.get_popup()
+	#for i in button.item_count:
+		#popup.set_item_as_radio_checkable(i, false)
 		
-func populate_component_button(button: OptionButton, components: Array):
-	var popup = button.get_popup()
-	for i in components.size():
-		button.add_item(components[i].name, i)
-		button.set_item_metadata(i, components[i])
-		popup.set_item_as_radio_checkable(i, false)
+
 		
 func build_description(_val = null):
 	desc_text.clear()
@@ -109,15 +84,7 @@ func build_description(_val = null):
 	desc_text.pop()
 	desc_text.add_text(". May the fortune of the stars be with you!")
 	
-func randomize_quest():
-	faction_origin.select(randi_range(0, faction_origin.item_count - 2))
-	faction_origin.item_selected.emit(faction_origin.selected)
-	faction_target.select(randi_range(0, faction_target.item_count - 1))
-	faction_target.item_selected.emit(faction_target.selected)
-	location.select(randi_range(0, location.item_count - 1))
-	location.item_selected.emit(location.selected)
-	objective.select(randi_range(0, objective.item_count - 1))
-	objective.item_selected.emit(objective.selected)
+
 	
 func build_rewards():
 	for child in rewards_container.get_children():

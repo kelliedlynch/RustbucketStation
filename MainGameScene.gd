@@ -15,7 +15,7 @@ func _ready() -> void:
 	_connect_button_to_menu(rep_menu_button, load("res://Interface/ReputationMenu.tscn"))
 	_connect_button_to_menu(mission_builder_button, load("res://Interface/MissionBuilder/MissionBuilder.tscn"))
 	_connect_button_to_menu(mission_list_button, load("res://Interface/MissionList/MissionList.tscn"))
-	_connect_button_to_menu(pilot_list_button, load("res://Interface/PilotList.tscn"))
+	_connect_button_to_menu(pilot_list_button, load("res://Interface/PilotList/PilotList.tscn"))
 	advance_button.pressed.connect(Game.advance_game_tick)
 	
 func _connect_button_to_menu(button: Button, menu: PackedScene):

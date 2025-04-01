@@ -14,7 +14,7 @@ signal mission_updated
 
 func _on_game_begin():
 	Game.game_tick_advanced.connect(_on_game_tick_advanced)
-	for i in 3:
+	for i in 7:
 		generate_random_request()
 
 func post_mission(mission: Mission):

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://35tkjlbtmnu6"]
 
 [ext_resource type="PackedScene" uid="uid://cdwtdj8vxcbl5" path="res://Interface/DynamicFrame/DynamicFrame.tscn" id="1_7eh7m"]
-[ext_resource type="Script" uid="uid://g8f55gy8hfu7" path="res://Interface/PilotList.gd" id="1_pn80n"]
+[ext_resource type="Script" uid="uid://g8f55gy8hfu7" path="res://Interface/PilotList/PilotList.gd" id="1_pn80n"]
 
 [node name="PilotList" type="MarginContainer"]
 anchors_preset = 15

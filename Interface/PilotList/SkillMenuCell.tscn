@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://x8xxowdckmno"]
 
-[ext_resource type="Script" uid="uid://cvumqhmqo0cyr" path="res://Interface/SkillMenuCell.gd" id="1_ka7ob"]
+[ext_resource type="Script" uid="uid://cvumqhmqo0cyr" path="res://Interface/PilotList/SkillMenuCell.gd" id="1_ka7ob"]
 [ext_resource type="StyleBox" uid="uid://beftae1rdoriu" path="res://Interface/MenuCell.tres" id="2_ka7ob"]
-[ext_resource type="Shader" uid="uid://bq3sh76an6o4c" path="res://Interface/UnitMenuItem/AnotherOutline.gdshader" id="3_ka7ob"]
+[ext_resource type="Shader" uid="uid://bq3sh76an6o4c" path="res://Interface/PilotList/PilotListItem/OutlineSprite.gdshader" id="3_ka7ob"]
 [ext_resource type="Texture2D" uid="uid://bakjni2vwql36" path="res://Graphics/Icons/eclipse.png" id="4_f0upx"]
 [ext_resource type="FontFile" uid="uid://bxfwawiiixnq5" path="res://Graphics/Fonts/Hemi Head Bd It.otf" id="6_f0upx"]
 

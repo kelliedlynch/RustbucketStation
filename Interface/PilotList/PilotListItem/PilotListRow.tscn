@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://c82oohrayy22y"]
 
-[ext_resource type="Script" uid="uid://7frsxvq8dw7f" path="res://Interface/UnitMenuItem/UnitMenuRow.gd" id="1_7vfkv"]
-[ext_resource type="StyleBox" uid="uid://mmblmgoor80e" path="res://Interface/UnitMenuItem/MenuItemRowStraightEnds.tres" id="1_8rjce"]
-[ext_resource type="PackedScene" uid="uid://cj1i70p5sp2jy" path="res://Interface/UnitMenuItem/NeedsBar.tscn" id="2_xgenu"]
-[ext_resource type="PackedScene" uid="uid://x8xxowdckmno" path="res://Interface/SkillMenuCell.tscn" id="6_d7bra"]
+[ext_resource type="Script" uid="uid://7frsxvq8dw7f" path="res://Interface/PilotList/PilotListItem/PilotListRow.gd" id="1_7vfkv"]
+[ext_resource type="StyleBox" uid="uid://mmblmgoor80e" path="res://Interface/PilotList/PilotListItem/MenuItemRowStraightEnds.tres" id="1_8rjce"]
+[ext_resource type="PackedScene" uid="uid://cj1i70p5sp2jy" path="res://Interface/PilotList/PilotListItem/NeedsBar.tscn" id="2_xgenu"]
+[ext_resource type="PackedScene" uid="uid://x8xxowdckmno" path="res://Interface/PilotList/SkillMenuCell.tscn" id="6_d7bra"]
 [ext_resource type="Texture2D" uid="uid://bpbc512k156ps" path="res://Graphics/circle_border.png" id="6_xxu2b"]
 [ext_resource type="Texture2D" uid="uid://dqiq6xuia0g32" path="res://Graphics/Icons/sparkles.png" id="7_bh7ph"]
 [ext_resource type="Texture2D" uid="uid://dheong16pv8d0" path="res://Graphics/ring_background.png" id="7_w8tk3"]

@@ -1,10 +1,5 @@
-extends Resource
+extends MissionBase
 class_name Mission
-
-var origin: FactionComponent
-var target: FactionComponent
-var location: LocationComponent
-var objective: Objective
 
 var crew_size: int = 1
 
@@ -19,10 +14,6 @@ var money_reward: int:
 var rep_reward: Dictionary[Faction, int]:
 	get:
 		return MissionRewardsManager.calculate_rep_rewards(self)
-
-var components: Array[MissionComponent]:
-	get:
-		return [origin, target, location, objective] as Array[MissionComponent]
 
 var needs_satisfaction: Dictionary[String, int]:
 	get:

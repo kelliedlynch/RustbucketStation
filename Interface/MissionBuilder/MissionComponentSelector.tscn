@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr1imos8jbwjb"]
+
+[ext_resource type="Theme" uid="uid://bw7068hor8c7d" path="res://Interface/MissionBuilder/OptionButtonTheme.tres" id="1_dejwr"]
+[ext_resource type="Script" uid="uid://dteiyyyj0dh4" path="res://Interface/MissionBuilder/MissionComponentSelector.gd" id="1_er0kt"]
+
+[node name="MissionComponentSelector" type="VBoxContainer"]
+script = ExtResource("1_er0kt")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="OriginLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Origin"
+
+[node name="FactionOrigin" type="OptionButton" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_dejwr")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+
+[node name="TargetLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Target"
+
+[node name="FactionTarget" type="OptionButton" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_dejwr")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+
+[node name="LocationLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Location"
+
+[node name="Location" type="OptionButton" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_dejwr")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+
+[node name="ObjectiveLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Objective"
+
+[node name="Objective" type="OptionButton" parent="GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_dejwr")
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+
+[node name="RandomizeButton" type="Button" parent="."]
+layout_mode = 2
+text = "Randomize"

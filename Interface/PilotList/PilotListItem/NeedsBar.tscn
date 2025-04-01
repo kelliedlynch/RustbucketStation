@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cj1i70p5sp2jy"]
 
-[ext_resource type="Script" uid="uid://bqrftqhljxsft" path="res://Interface/UnitMenuItem/NeedsBar.gd" id="1_kos10"]
+[ext_resource type="Script" uid="uid://bqrftqhljxsft" path="res://Interface/PilotList/PilotListItem/NeedsBar.gd" id="1_kos10"]
 [ext_resource type="Texture2D" uid="uid://c7faibvw8njxb" path="res://Graphics/Icons/dice.png" id="4_8l0co"]
-[ext_resource type="Shader" uid="uid://bq3sh76an6o4c" path="res://Interface/UnitMenuItem/AnotherOutline.gdshader" id="6_b2vls"]
+[ext_resource type="Shader" uid="uid://bq3sh76an6o4c" path="res://Interface/PilotList/PilotListItem/OutlineSprite.gdshader" id="6_b2vls"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tprc"]
 bg_color = Color(0.23, 0.23, 0.23, 1)
@@ -14,7 +14,7 @@ corner_radius_top_right = 6
 corner_radius_bottom_left = 6
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46wdm"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivg5r"]
 bg_color = Color(1, 1, 0, 1)
 border_width_left = 2
 border_width_top = 2
@@ -49,7 +49,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 12
 theme_override_styles/background = SubResource("StyleBoxFlat_2tprc")
-theme_override_styles/fill = SubResource("StyleBoxFlat_46wdm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ivg5r")
 value = 50.0
 fill_mode = 3
 show_percentage = false

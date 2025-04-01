@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds663i4natx8f"]
+
+[ext_resource type="Script" uid="uid://bomp77di1c6xm" path="res://Interface/MissionList/MissionRequestItem.gd" id="1_vux1k"]
+[ext_resource type="PackedScene" uid="uid://ci37oy24oasix" path="res://Interface/MissionList/MissionComponentsRow.tscn" id="2_1q0ki"]
+[ext_resource type="Texture2D" uid="uid://dw8pqaiij0koh" path="res://Graphics/Icons/plus.png" id="4_mhcr3"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vux1k")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MissionComponents" parent="HBoxContainer" instance=ExtResource("2_1q0ki")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="PopulateMission" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("4_mhcr3")
+expand_icon = true
