@@ -58,3 +58,10 @@ func generate_random_request():
 
 func _on_game_tick_advanced(tick: int):
 	pass
+
+func calculate_duration(mission: Mission) -> int:
+	var base = mission.components.reduce(func(accum, val): accum += val.get_base_duration(mission), 0)
+	var modified = base
+	for component in mission.components:
+		modified += component.apply_duration_modifiers(mission, base)
+	return modified

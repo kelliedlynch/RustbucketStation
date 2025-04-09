@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://murpraarljcp"]
+[gd_scene load_steps=10 format=3 uid="uid://murpraarljcp"]
 
 [ext_resource type="PackedScene" uid="uid://ba5dp78yh7n5t" path="res://SpaceBackground.tscn" id="1_dp36p"]
 [ext_resource type="Script" uid="uid://ckm5v3dooegf6" path="res://MainGameScene.gd" id="1_t7cbl"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b4sebah277pjs" path="res://Graphics/Icons/hit_target.png" id="5_holyq"]
 [ext_resource type="Texture2D" uid="uid://doh3lkripxhn0" path="res://Graphics/Icons/checklist.png" id="6_ccfle"]
 [ext_resource type="Texture2D" uid="uid://clmmmf071445r" path="res://Graphics/Icons/person_single.png" id="7_2p6ie"]
+[ext_resource type="Texture2D" uid="uid://bg7260813pbe3" path="res://Graphics/SVG/Asset 5@4x.png" id="9_4gwvo"]
 [ext_resource type="Texture2D" uid="uid://dmlp57ua85tsx" path="res://Graphics/Icons/fastForward.png" id="11_48cxd"]
 
 [node name="MainGameScene" type="Control"]
@@ -32,7 +33,7 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="RepMenuButton" type="Button" parent="HBoxContainer/MenuButtons"]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme = ExtResource("2_t7cbl")
 toggle_mode = true
@@ -57,7 +58,7 @@ texture = ExtResource("3_lhppi")
 expand_mode = 1
 
 [node name="MissionBuilderButton" type="Button" parent="HBoxContainer/MenuButtons"]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme = ExtResource("2_t7cbl")
 toggle_mode = true
@@ -82,7 +83,7 @@ texture = ExtResource("5_holyq")
 expand_mode = 1
 
 [node name="MissionListButton" type="Button" parent="HBoxContainer/MenuButtons"]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme = ExtResource("2_t7cbl")
 toggle_mode = true
@@ -107,7 +108,7 @@ texture = ExtResource("6_ccfle")
 expand_mode = 1
 
 [node name="PilotListButton" type="Button" parent="HBoxContainer/MenuButtons"]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme = ExtResource("2_t7cbl")
 toggle_mode = true
@@ -140,12 +141,12 @@ theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
 [node name="AdvanceButton" type="Button" parent="."]
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 1752.0
-offset_top = 937.0
-offset_right = 1880.0
-offset_bottom = 1065.0
+offset_left = 1804.0
+offset_top = 985.0
+offset_right = 1892.0
+offset_bottom = 1073.0
 theme = ExtResource("2_t7cbl")
 icon_alignment = 1
 expand_icon = true
@@ -166,3 +167,8 @@ theme_override_constants/margin_bottom = 30
 layout_mode = 2
 texture = ExtResource("11_48cxd")
 expand_mode = 1
+
+[node name="Asset5_4x" type="Sprite2D" parent="."]
+position = Vector2(1033, 527)
+scale = Vector2(0.309337, 0.309337)
+texture = ExtResource("9_4gwvo")

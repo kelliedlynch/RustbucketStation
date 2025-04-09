@@ -11,3 +11,6 @@ func get_base_rep_reward(mission: Mission) -> Dictionary[Faction, int]:
 	if mission.target and mission.target.faction == location.controller:
 		rep[mission.target.faction] = -20
 	return rep
+
+func get_base_duration(mission: Mission) -> int:
+	return round(location.distance / 100)

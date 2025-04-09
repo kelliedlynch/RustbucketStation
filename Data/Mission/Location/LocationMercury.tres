@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_o5a1f")
 name = "Mercury"
-distance = 0
+distance = 300
 controller = ExtResource("1_6inff")
 metadata/_custom_type_script = "uid://d4ljagtclmenv"

@@ -28,3 +28,9 @@ func get_base_needs_satisfaction(_mission: Mission) -> Dictionary[String, int]:
 
 func apply_needs_satisfaction_modifiers(_mission: Mission, _base_val: Dictionary[String, int]) -> Dictionary[String, int]:
 	return {} as Dictionary[String, int]
+
+func get_base_duration(_mission: Mission) -> int:
+	return 0
+	
+func apply_duration_modifiers(_mission: Mission, _base_val: int) -> int:
+	return 0
